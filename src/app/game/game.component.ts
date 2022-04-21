@@ -47,17 +47,17 @@ class NewScene extends Phaser.Scene {
     this.background.displayWidth = this.sys.canvas.width;
     this.background.displayHeight = this.sys.canvas.height;
 
-    let image1 = this.add.sprite(100, 200, 'p1').setInteractive();
-    let image2 = this.add.sprite(100, 300, 'p2').setInteractive();
-    let image3 = this.add.sprite(100, 400, 'p3').setInteractive();
-    let image4 = this.add.sprite(100, 500, 'p4').setInteractive();
-    let image5 = this.add.sprite(100, 600, 'p5').setInteractive();
+    let image1 = this.add.sprite(100, 200, 'p1').setInteractive({ cursor: 'pointer' });
+    let image2 = this.add.sprite(100, 300, 'p2').setInteractive({ cursor: 'pointer' });
+    let image3 = this.add.sprite(100, 400, 'p3').setInteractive({ cursor: 'pointer' });
+    let image4 = this.add.sprite(100, 500, 'p4').setInteractive({ cursor: 'pointer' });
+    let image5 = this.add.sprite(100, 600, 'p5').setInteractive({ cursor: 'pointer' });
 
-    let image6 = this.add.sprite(700, 200, 'p6').setInteractive();
-    let image7 = this.add.sprite(700, 300, 'p7').setInteractive();
-    let image8 = this.add.sprite(700, 400, 'p8').setInteractive();
-    let image9 = this.add.sprite(700, 500, 'p9').setInteractive();
-    let image10 = this.add.sprite(700, 600, 'p10').setInteractive();
+    let image6 = this.add.sprite(700, 200, 'p6').setInteractive({ cursor: 'pointer' });
+    let image7 = this.add.sprite(700, 300, 'p7').setInteractive({ cursor: 'pointer' });
+    let image8 = this.add.sprite(700, 400, 'p8').setInteractive({ cursor: 'pointer' });
+    let image9 = this.add.sprite(700, 500, 'p9').setInteractive({ cursor: 'pointer' });
+    let image10 = this.add.sprite(700, 600, 'p10').setInteractive({ cursor: 'pointer' });
 
     this.input.setDraggable(image6);
     this.input.setDraggable(image7);
@@ -186,7 +186,7 @@ class NewScene extends Phaser.Scene {
       let mapping = [{ key: 'p1', val: 200, match: 'p8' }, { key: 'p2', val: 200, match: 'p7' }, { key: 'p3', val: 200, match: 'p6' }, { key: 'p4', val: 200, match: 'p10' }, { key: 'p5', val: 200, match: 'p9' }]
       let obj = mapping.find(o => o.match === gameObject.texture.key);
       console.log(obj)
-      
+
       if (this.firstClick == false) {
         if (gameObject.x > 250) {
           alert('wrong move')
