@@ -315,6 +315,70 @@ class NewScene extends Phaser.Scene {
       }
     })
 
+    image7.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p7'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p7') {
+          image7.setPosition(255.7106120828222 , 500.8466178183499)
+          image7Name.setPosition(255.7106120828222 , 500.8466178183499)
+          this.input.setDraggable(image7, false);
+          image7.clearTint();
+          image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('wrong move')
+        }
+      }
+    })
+
+    image10.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p10'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p10') {
+          image10.setPosition(255.7106120828222 , 500.8466178183499)
+          image10Name.setPosition(255.7106120828222 , 500.8466178183499)
+          this.input.setDraggable(image10, false);
+          image10.clearTint();
+          image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('wrong move')
+        }
+      }
+    })
+
+    image13.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p13'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p13') {
+          image13.setPosition(255.7106120828222 , 500.8466178183499)
+          image13Name.setPosition(255.7106120828222 , 500.8466178183499)
+          this.input.setDraggable(image13, false);
+          image13.clearTint();
+          image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('wrong move')
+        }
+      }
+    })
+
+    image23.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p23'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p23') {
+          image23.setPosition(255.7106120828222 , 500.8466178183499)
+          image23Name.setPosition(255.7106120828222 , 500.8466178183499)
+          this.input.setDraggable(image23, false);
+          image23.clearTint();
+          image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('wrong move')
+        }
+      }
+    })
+
     image12.on('pointerup', () => {
       this.clickMatchObject['match'] = 'p12'
       if (this.firstClick) {
@@ -523,12 +587,12 @@ class NewScene extends Phaser.Scene {
       console.log(pointer, gameObject);
       let mapping = [{ key: 'p1', val: 200, match: 'p6' }, { key: 'p1', val: 200, match: 'p11' }, { key: 'p1', val: 200, match: 'p16' }, { key: 'p1', val: 200, match: 'p22' },
       { key: 'p2', val: 200, match: 'p8' }, { key: 'p2', val: 200, match: 'p14' }, { key: 'p2', val: 200, match: 'p19' }, { key: 'p2', val: 200, match: 'p20' },
-      { key: 'p3', val: 200, match: 'p6' },
+      { key: 'p3', val: 200, match: 'p7' },{ key: 'p3', val: 200, match: 'p10' },{ key: 'p3', val: 200, match: 'p13' },{ key: 'p3', val: 200, match: 'p23' },
       { key: 'p4', val: 200, match: 'p12' }, { key: 'p4', val: 200, match: 'p15' }, { key: 'p4', val: 200, match: 'p17' }, { key: 'p4', val: 200, match: 'p21' },
       { key: 'p5', val: 200, match: 'p9' }, { key: 'p5', val: 200, match: 'p18' }, { key: 'p5', val: 200, match: 'p24' }]
       let obj = mapping.find(o => o.match === gameObject.texture.key);
       console.log(obj)
-      // console.log(gameObject.x, gameObject.y)
+      console.log(gameObject.x, gameObject.y)
       if (this.firstClick == false) {
         if (gameObject.x > 290) {
           alert('wrong move')
@@ -583,10 +647,12 @@ class NewScene extends Phaser.Scene {
             }
           }
 
-          if (obj.match == 'p10') {
+          if (obj.match == 'p7' || obj.match == 'p10' || obj.match == 'p13' || obj.match == 'p23') {
             if (gameObject.y < 505 && gameObject.y > 495) {
               gameObject.disableInteractive();
               gameObject.clearTint();
+              gameObject.x = 255.7106120828222 
+              gameObject.y = 500.8466178183499
             }
             else {
               alert('wrong move')
