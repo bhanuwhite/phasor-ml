@@ -198,7 +198,7 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -214,7 +214,7 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -230,7 +230,7 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -246,7 +246,7 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -262,7 +262,7 @@ class NewScene extends Phaser.Scene {
           image2.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -278,7 +278,7 @@ class NewScene extends Phaser.Scene {
           image2.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -294,7 +294,7 @@ class NewScene extends Phaser.Scene {
           image2.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -310,7 +310,7 @@ class NewScene extends Phaser.Scene {
           image2.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -319,14 +319,14 @@ class NewScene extends Phaser.Scene {
       this.clickMatchObject['match'] = 'p7'
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p7') {
-          image7.setPosition(255.7106120828222 , 500.8466178183499)
-          image7Name.setPosition(255.7106120828222 , 500.8466178183499)
+          image7.setPosition(255.7106120828222, 500.8466178183499)
+          image7Name.setPosition(255.7106120828222, 500.8466178183499)
           this.input.setDraggable(image7, false);
           image7.clearTint();
           image3.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -335,14 +335,14 @@ class NewScene extends Phaser.Scene {
       this.clickMatchObject['match'] = 'p10'
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p10') {
-          image10.setPosition(255.7106120828222 , 500.8466178183499)
-          image10Name.setPosition(255.7106120828222 , 500.8466178183499)
+          image10.setPosition(255.7106120828222, 500.8466178183499)
+          image10Name.setPosition(255.7106120828222, 500.8466178183499)
           this.input.setDraggable(image10, false);
           image10.clearTint();
           image3.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -351,14 +351,14 @@ class NewScene extends Phaser.Scene {
       this.clickMatchObject['match'] = 'p13'
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p13') {
-          image13.setPosition(255.7106120828222 , 500.8466178183499)
-          image13Name.setPosition(255.7106120828222 , 500.8466178183499)
+          image13.setPosition(255.7106120828222, 500.8466178183499)
+          image13Name.setPosition(255.7106120828222, 500.8466178183499)
           this.input.setDraggable(image13, false);
           image13.clearTint();
           image3.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -367,14 +367,14 @@ class NewScene extends Phaser.Scene {
       this.clickMatchObject['match'] = 'p23'
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p23') {
-          image23.setPosition(255.7106120828222 , 500.8466178183499)
-          image23Name.setPosition(255.7106120828222 , 500.8466178183499)
+          image23.setPosition(255.7106120828222, 500.8466178183499)
+          image23Name.setPosition(255.7106120828222, 500.8466178183499)
           this.input.setDraggable(image23, false);
           image23.clearTint();
           image3.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -390,7 +390,7 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -406,7 +406,7 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -422,7 +422,7 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -438,7 +438,7 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -454,7 +454,7 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -470,7 +470,7 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -486,7 +486,7 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
         } else {
-          alert('wrong move')
+          alert('incorrect move')
         }
       }
     })
@@ -587,15 +587,110 @@ class NewScene extends Phaser.Scene {
       console.log(pointer, gameObject);
       let mapping = [{ key: 'p1', val: 200, match: 'p6' }, { key: 'p1', val: 200, match: 'p11' }, { key: 'p1', val: 200, match: 'p16' }, { key: 'p1', val: 200, match: 'p22' },
       { key: 'p2', val: 200, match: 'p8' }, { key: 'p2', val: 200, match: 'p14' }, { key: 'p2', val: 200, match: 'p19' }, { key: 'p2', val: 200, match: 'p20' },
-      { key: 'p3', val: 200, match: 'p7' },{ key: 'p3', val: 200, match: 'p10' },{ key: 'p3', val: 200, match: 'p13' },{ key: 'p3', val: 200, match: 'p23' },
+      { key: 'p3', val: 200, match: 'p7' }, { key: 'p3', val: 200, match: 'p10' }, { key: 'p3', val: 200, match: 'p13' }, { key: 'p3', val: 200, match: 'p23' },
       { key: 'p4', val: 200, match: 'p12' }, { key: 'p4', val: 200, match: 'p15' }, { key: 'p4', val: 200, match: 'p17' }, { key: 'p4', val: 200, match: 'p21' },
       { key: 'p5', val: 200, match: 'p9' }, { key: 'p5', val: 200, match: 'p18' }, { key: 'p5', val: 200, match: 'p24' }]
       let obj = mapping.find(o => o.match === gameObject.texture.key);
       console.log(obj)
-      console.log(gameObject.x, gameObject.y)
+      // console.log(gameObject.x, gameObject.y)
       if (this.firstClick == false) {
         if (gameObject.x > 290) {
-          alert('wrong move')
+          alert('incorrect move')
+          if (obj.match == 'p6') {
+            image6.setPosition(700, 100)
+            image6Name.setPosition(700, 100);
+            image6.clearTint();
+          }
+          else if (gameObject.texture.key == 'p7') {
+            image7.setPosition(700, 280)
+            image7Name.setPosition(700, 280);
+            image7.clearTint()
+          }
+          else if (gameObject.texture.key == 'p8') {
+            image8.setPosition(700, 460)
+            image8Name.setPosition(700, 460);
+            image8.clearTint();
+          }
+          else if (gameObject.texture.key == 'p9') {
+            image9.setPosition(700, 640)
+            image9Name.setPosition(700, 640)
+            image9.clearTint();
+          }
+          else if (gameObject.texture.key == 'p10') {
+            image10.setPosition(700, 820)
+            image10Name.setPosition(700, 820)
+            image10.clearTint();
+          }
+          else if (gameObject.texture.key == 'p11') {
+            image11.setPosition(700, 1000)
+            image11Name.setPosition(700, 1000);
+            image11.clearTint();
+          }
+          else if (gameObject.texture.key == 'p12') {
+            image12.setPosition(700, 1180)
+            image12Name.setPosition(700, 1180);
+            image12.clearTint();
+          }
+          else if (gameObject.texture.key == 'p13') {
+            image13.setPosition(1000, 100)
+            image13Name.setPosition(1000, 100);
+            image13.clearTint();
+          }
+          else if (gameObject.texture.key == 'p14') {
+            image14.setPosition(1000, 280)
+            image14Name.setPosition(1000, 280);
+            image14.clearTint();
+          }
+          else if (gameObject.texture.key == 'p15') {
+            image15.setPosition(1000, 460)
+            image15Name.setPosition(1000, 460);
+            image15.clearTint();
+          }
+          else if (gameObject.texture.key == 'p16') {
+            image16.setPosition(1000, 640)
+            image16Name.setPosition(1000, 640);
+            image16.clearTint();
+          }
+          else if (gameObject.texture.key == 'p17') {
+            image17.setPosition(1000, 820)
+            image17Name.setPosition(1000, 820);
+            image17.clearTint();
+          }
+          else if (gameObject.texture.key == 'p18') {
+            image18.setPosition(1000, 1000)
+            image18Name.setPosition(1000, 1000);
+            image18.clearTint();
+          }
+          else if (gameObject.texture.key == 'p19') {
+            image19.setPosition(1000, 1180)
+            image19Name.setPosition(1000, 1180);
+            image19.clearTint();
+          }
+          else if (gameObject.texture.key == 'p20') {
+            image20.setPosition(1300, 100)
+            image20Name.setPosition(1300, 100);
+            image20.clearTint();
+          }
+          else if (gameObject.texture.key == 'p21') {
+            image21.setPosition(1300, 280)
+            image21Name.setPosition(1300, 280);
+            image21.clearTint();
+          }
+          else if (gameObject.texture.key == 'p22') {
+            image22.setPosition(1300, 460)
+            image22Name.setPosition(1300, 460);
+            image22.clearTint();
+          }
+          else if (gameObject.texture.key == 'p23') {
+            image23.setPosition(1300, 640)
+            image23Name.setPosition(1300, 640);
+            image23.clearTint();
+          }
+          else if (gameObject.texture.key == 'p24') {
+            image24.setPosition(1300, 820)
+            image24Name.setPosition(1300, 820);
+            image24.clearTint();
+          }
         }
         else {
 
@@ -607,7 +702,31 @@ class NewScene extends Phaser.Scene {
               gameObject.y = 100
             }
             else {
-              alert('wrong move')
+              alert('incorrect move')
+              if (obj.match == 'p6') {
+                image6.setPosition(700, 100)
+                image6Name.setPosition(700, 100);
+                image6.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p11') {
+                image11.setPosition(700, 1000)
+                image11Name.setPosition(700, 1000);
+                image11.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p16') {
+                image16.setPosition(1000, 640)
+                image16Name.setPosition(1000, 640);
+                image16.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p22') {
+                image22.setPosition(1300, 460)
+                image22Name.setPosition(1300, 460);
+                image22.clearTint();
+              }
+
             }
           }
 
@@ -619,11 +738,34 @@ class NewScene extends Phaser.Scene {
               gameObject.y = 297.062423500612
             }
             else {
-              alert('wrong move')
+              alert('incorrect move')
+              if (gameObject.texture.key == 'p8') {
+                image8.setPosition(700, 460)
+                image8Name.setPosition(700, 460);
+                image8.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p14') {
+                image14.setPosition(1000, 280)
+                image14Name.setPosition(1000, 280);
+                image14.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p19') {
+                image19.setPosition(1000, 1180)
+                image19Name.setPosition(1000, 1180);
+                image19.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p20') {
+                image20.setPosition(1300, 100)
+                image20Name.setPosition(1300, 100);
+                image20.clearTint()
+              }
             }
           }
 
-          if (obj.match == 'p12' || obj.match == 'p15' || obj.match == 'p12' || obj.match == 'p17' || obj.match == 'p21') {
+          if (obj.match == 'p12' || obj.match == 'p15' || obj.match == 'p17' || obj.match == 'p21') {
             if (gameObject.y < 710 && gameObject.y > 695) {
               gameObject.disableInteractive();
               gameObject.clearTint();
@@ -631,7 +773,29 @@ class NewScene extends Phaser.Scene {
               gameObject.y = 701.7391304347827;
             }
             else {
-              alert('wrong move')
+              alert('incorrect move')
+              if (gameObject.texture.key == 'p12') {
+                image12.setPosition(700, 1180)
+                image12Name.setPosition(700, 1180);
+                image12.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p15') {
+                image15.setPosition(1000, 460)
+                image15Name.setPosition(1000, 460)
+                image15.clearTint()
+              }
+              else if (gameObject.texture.key == 'p17') {
+                image17.setPosition(1000, 820)
+                image17Name.setPosition(1000, 820)
+                image17.clearTint()
+              }
+
+              else if (gameObject.texture.key == 'p21') {
+                image21.setPosition(1300, 280)
+                image21Name.setPosition(1300, 280)
+                image21.clearTint()
+              }
             }
           }
 
@@ -643,7 +807,23 @@ class NewScene extends Phaser.Scene {
               gameObject.y = 899.8195697432338
             }
             else {
-              alert('wrong move')
+              alert('incorrect move');
+              if (gameObject.texture.key == 'p9') {
+                image9.setPosition(700, 640)
+                image9Name.setPosition(700, 640);
+                image9.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p18') {
+                image18.setPosition(1000, 1000)
+                image18Name.setPosition(1000, 1000);
+                image18.clearTint();
+              }
+              else if (gameObject.texture.key == 'p24') {
+                image24.setPosition(1300, 820)
+                image24Name.setPosition(1300, 820);
+                image24.clearTint();
+              }
             }
           }
 
@@ -651,17 +831,39 @@ class NewScene extends Phaser.Scene {
             if (gameObject.y < 505 && gameObject.y > 495) {
               gameObject.disableInteractive();
               gameObject.clearTint();
-              gameObject.x = 255.7106120828222 
+              gameObject.x = 255.7106120828222
               gameObject.y = 500.8466178183499
             }
             else {
-              alert('wrong move')
+              alert('incorrect move')
+              if (gameObject.texture.key == 'p7') {
+                image7.setPosition(700, 280)
+                image7Name.setPosition(700, 280)
+                image7.clearTint();
+              }
+              else if (gameObject.texture.key == 'p10') {
+                image10.setPosition(700, 820)
+                image10Name.setPosition(700, 820);
+                image10.clearTint();
+              }
+
+              else if (gameObject.texture.key == 'p13') {
+                image13.setPosition(1000, 100)
+                image13Name.setPosition(1000, 100);
+                image13.clearTint();
+              }
+              else if (gameObject.texture.key == 'p23') {
+                image23.setPosition(1300, 640);
+                image23Name.setPosition(1300, 640);
+                image23.clearTint()
+              }
+
             }
           }
         }
       }
       // if(gameObject.x>250)
-      // alert('wrong move')
+      // alert('incorrect move')
       // else
       // gameObject.disableInteractive()
       // // this.input.setDraggable(image6, false);
