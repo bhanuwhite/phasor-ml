@@ -14,7 +14,8 @@ class NewScene extends Phaser.Scene {
   debug: any;
   clickMatchObject: object = { "key": '', "match": '' };
   firstClick: boolean = false;
-  image5Content: string[] = ["What is the", "Largest", "Animal"]
+  image5Content: string[] = ["What is the", "Largest", "Animal"];
+  enableDoneButton: string[] = [];
   private background: Phaser.GameObjects.Image;
 
   constructor() {
@@ -197,6 +198,12 @@ class NewScene extends Phaser.Scene {
           image6.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p1')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -213,6 +220,12 @@ class NewScene extends Phaser.Scene {
           image11.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p1')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -229,6 +242,12 @@ class NewScene extends Phaser.Scene {
           image16.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p1')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -245,6 +264,12 @@ class NewScene extends Phaser.Scene {
           image22.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p1')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -261,6 +286,12 @@ class NewScene extends Phaser.Scene {
           image8.clearTint();
           image2.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p2')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -277,6 +308,12 @@ class NewScene extends Phaser.Scene {
           image14.clearTint();
           image2.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p2')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -293,6 +330,12 @@ class NewScene extends Phaser.Scene {
           image19.clearTint();
           image2.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p2')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -309,6 +352,12 @@ class NewScene extends Phaser.Scene {
           image20.clearTint();
           image2.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p2')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -325,6 +374,12 @@ class NewScene extends Phaser.Scene {
           image7.clearTint();
           image3.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p3')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -341,6 +396,12 @@ class NewScene extends Phaser.Scene {
           image10.clearTint();
           image3.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p3')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -357,6 +418,12 @@ class NewScene extends Phaser.Scene {
           image13.clearTint();
           image3.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p3')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -373,6 +440,12 @@ class NewScene extends Phaser.Scene {
           image23.clearTint();
           image3.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p3')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -389,6 +462,12 @@ class NewScene extends Phaser.Scene {
           image12.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p4')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -405,6 +484,12 @@ class NewScene extends Phaser.Scene {
           image15.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p4')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -421,6 +506,12 @@ class NewScene extends Phaser.Scene {
           image17.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p4')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -437,6 +528,12 @@ class NewScene extends Phaser.Scene {
           image21.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p4')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -453,6 +550,12 @@ class NewScene extends Phaser.Scene {
           image9.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p5')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -469,6 +572,12 @@ class NewScene extends Phaser.Scene {
           image18.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p5')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -485,6 +594,12 @@ class NewScene extends Phaser.Scene {
           image24.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.enableDoneButton.push('p5')
+          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+            document.getElementById('doneButton').style.background = "#90EE90"
+          }
+          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -501,10 +616,29 @@ class NewScene extends Phaser.Scene {
 
     });
 
-    this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+    this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
       // console.log(dragX, dragY)
       gameObject.x = dragX;
       gameObject.y = dragY;
+      if (gameObject.texture.key == 'p6' || gameObject.texture.key == 'p11' || gameObject.texture.key == 'p16' || gameObject.texture.key == 'p22') {
+        this.enableDoneButton.push('p1')
+      }
+      if (gameObject.texture.key == 'p8' || gameObject.texture.key == 'p14' || gameObject.texture.key == 'p19' || gameObject.texture.key == 'p20') {
+        this.enableDoneButton.push('p2')
+      }
+      if (gameObject.texture.key == 'p7' || gameObject.texture.key == 'p10' || gameObject.texture.key == 'p13' || gameObject.texture.key == 'p23') {
+        this.enableDoneButton.push('p3')
+      }
+      if (gameObject.texture.key == 'p12' || gameObject.texture.key == 'p15' || gameObject.texture.key == 'p17' || gameObject.texture.key == 'p21') {
+        this.enableDoneButton.push('p4')
+      }
+      if (gameObject.texture.key == 'p9' || gameObject.texture.key == 'p18' || gameObject.texture.key == 'p24') {
+        this.enableDoneButton.push('p5')
+      }
+      if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
+        document.getElementById('doneButton').style.background = "#90EE90"
+      }
+
       if (gameObject.texture.key == 'p6') {
         image6Name.x = dragX
         image6Name.y = dragY
@@ -973,5 +1107,9 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.phaserGame = new Phaser.Game(this.config);
+  }
+
+  doneFunction() {
+    alert('puzzle pieces sucessfully matched')
   }
 }
