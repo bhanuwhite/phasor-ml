@@ -26,8 +26,8 @@
 
             </div>
             <div class="game-btn">
-                <button id="doneButton" (click)="nextFunction()">NEXT</button>
-                <!-- <button *ngIf="i >= 4" id="doneButton" (click)="revealFunction()">REVEAL</button> -->
+                <button *ngIf="i < 5" id="doneButton" (click)="nextFunction()">NEXT</button>
+                <button *ngIf="i >= 5" id="doneButton" (click)="revealFunction()">REVEAL</button>
             </div>
         </div>
     </div>

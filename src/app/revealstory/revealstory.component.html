@@ -1,7 +1,7 @@
 <div class="main-content-sec">
     <div class="left-side-sec">
         <ul>
-            <li [routerLink]="['/madlibs']">
+            <li [routerLink]="['/madlibs/stories']">
                 <div><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
                 <div class="icon-text">Back</div>
             </li>
@@ -11,16 +11,27 @@
             </li>
         </ul>
     </div>
-
     <div class="right-side-sec">
         <div class="title">A Garden for Room 8</div>
-        <div class="subtitle">Match the puzzle pieces together then click DONE to reveal a silly story.</div>
+        <div class="card-sec">
 
-        <div id="gameContainer">
-        </div>
+            <div class="square"></div>
+            <div class="square1"></div>
+            <div class="square2"></div>
+            <div class="square3"></div>
 
-        <div class="game-btn">
-            <button id="doneButton" (click)="doneFunction()">DONE</button>
+            <div class="storybox">
+                <span id="storyPhase1">Last week, our teacher told the class about an exciting new project. We get to build our own
+                    community garden! Mari asked around to see what her friends planned to bring. She wrote down notes
+                    on a {{matchObj['Noun1']}}.</span>&nbsp;
+                <span id="storyPhase2">Sofia wants to plant {{matchObj['Prural Noun']}}.</span>&nbsp;
+                <span id="storyPhase3">John is going to bring a {{matchObj['Noun2']}} from his pet
+                    {{matchObj['Animal']}}.</span>&nbsp;
+                 <span id="storyPhase4">Finally, Mari decided she will plant {{matchObj['Adjective']}} flowers.</span>   
+            </div>
+            <div class="game-btn">
+                <button id="doneButton" >Done</button>
+            </div>
         </div>
     </div>
 </div>
@@ -45,6 +56,3 @@
         <button id="doneButton" (click)="modal.dismiss('Cross click')">Next</button>
     </div>
 </ng-template>
-
-<!-- Notification Alert Message -->
-<app-alter-message [(staticAlertClosed)]="variable" message="Incorrect Move"></app-alter-message>

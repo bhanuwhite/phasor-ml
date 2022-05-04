@@ -99,7 +99,7 @@ ul li i:hover {
 .game-btn {
     display: flex;
     justify-content: center;
-    margin: 12px;
+    margin: 230px;
 
     button {
         border: 1px solid #737373;
@@ -124,34 +124,46 @@ ul li i:hover {
 
 .storybox {
     border: solid;
-    height: 250px;
-    width: 90%;
-    font-size: 30px;
+    height: 199px;
+    width: 50%;
+    font-size: 18px;
     border-radius: 5px;
     padding: 12px;
     overflow: auto;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
-#storyPhase1 {
-    display: none;
-}
+.square {
+    height: 150px;
+    width: 150px;
+    background-color: #555;
+    position: absolute;
+    right: 15%;
+  }
 
-#storyPhase2 {
-    display: none;
-}
+  .square1 {
+    height: 150px;
+    width: 150px;
+    background-color: #555;
+    position: absolute;
+    right: 15%;
+    top:60%
+  }
 
-#storyPhase3 {
-    display: none;
-}
+  .square2 {
+    height: 150px;
+    width: 150px;
+    background-color: #555;
+    position: absolute;
+    left: 20%;
+    top:60%
+  }
 
-#storyPhase4 {
-    display: none;
-}
-
-b {
-    background: #D0D0D0;
-    border-radius: 14px;
-    padding: 5px;
-    font-size: 25px;
-}
+  .square3 {
+    height: 150px;
+    width: 150px;
+    background-color: #555;
+    position: absolute;
+    left: 40%;
+    top:60%
+  }

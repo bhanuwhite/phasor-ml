@@ -9,6 +9,8 @@ import { MadlibsComponent } from './madlibs/madlibs.component';
 import { StoriesComponent } from './stories/stories.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlterMessageComponent } from './alter-message/alter-message.component';
+import { RevealstoryComponent } from './revealstory/revealstory.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     GameComponent,
     DashboardComponent,
     MadlibsComponent,
-    StoriesComponent
+    StoriesComponent,
+    AlterMessageComponent,
+    RevealstoryComponent
   ],
   imports: [
     BrowserModule,

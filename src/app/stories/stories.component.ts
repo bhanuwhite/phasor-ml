@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -14,7 +15,7 @@ export class StoriesComponent implements OnInit {
   // str: string = '';
   matchObj: object = {}
 
-  constructor(private cdr: ChangeDetectorRef,private modalService: NgbModal) {
+  constructor(private cdr: ChangeDetectorRef, private modalService: NgbModal, private router: Router) {
     let Match = JSON.parse(localStorage.getItem('Match'));
     Match.map((data) => {
       this.matchObj[Object.keys(data)[0]] = data[Object.keys(data)[0]]
@@ -64,6 +65,8 @@ export class StoriesComponent implements OnInit {
     });
   }
 
-  revealFunction() { }
+  revealFunction() {
+    this.router.navigate(['madlibs/stories/reveal']);
+  }
 
 }

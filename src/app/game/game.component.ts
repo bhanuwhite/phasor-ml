@@ -298,8 +298,15 @@ class NewScene extends Phaser.Scene {
           image6.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['match'] == 'p6') {
+            this.puzzlePieceMatch.push({ 'Prural Noun': image6Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
-          alert('incorrect move')
+
+          // alert('incorrect move')
         }
       }
     })
@@ -314,6 +321,13 @@ class NewScene extends Phaser.Scene {
           image9.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['match'] == 'p9') {
+            this.puzzlePieceMatch.push({ 'Prural Noun': image9Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
+
         } else {
           alert('incorrect move')
         }
@@ -330,6 +344,13 @@ class NewScene extends Phaser.Scene {
           image12.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['match'] == 'p12') {
+            this.puzzlePieceMatch.push({ 'Prural Noun': image12Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
+
         } else {
           alert('incorrect move')
         }
@@ -346,6 +367,13 @@ class NewScene extends Phaser.Scene {
           image15.clearTint();
           image1.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['match'] == 'p15') {
+            this.puzzlePieceMatch.push({ 'Prural Noun': image15Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
+
         } else {
           alert('incorrect move')
         }
@@ -362,6 +390,14 @@ class NewScene extends Phaser.Scene {
           image7.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p7') {
+            this.puzzlePieceMatch.push({ 'Noun1': image7Name._text })
+          } else {
+            this.puzzlePieceMatch.push({ 'Noun2': image7Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -378,6 +414,14 @@ class NewScene extends Phaser.Scene {
           image10.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p10') {
+            this.puzzlePieceMatch.push({ 'Noun1': image10Name._text })
+          } else {
+            this.puzzlePieceMatch.push({ 'Noun2': image10Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -394,6 +438,14 @@ class NewScene extends Phaser.Scene {
           image13.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p13') {
+            this.puzzlePieceMatch.push({ 'Noun1': image13Name._text })
+          } else {
+            this.puzzlePieceMatch.push({ 'Noun2': image13Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -410,6 +462,14 @@ class NewScene extends Phaser.Scene {
           image16.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p16') {
+            this.puzzlePieceMatch.push({ 'Noun1': image16Name._text })
+          } else {
+            this.puzzlePieceMatch.push({ 'Noun2': image16Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -426,6 +486,14 @@ class NewScene extends Phaser.Scene {
           image18.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
           this.firstClick = false;
+
+          if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p18') {
+            this.puzzlePieceMatch.push({ 'Noun1': image18Name._text })
+          } else {
+            this.puzzlePieceMatch.push({ 'Noun2': image18Name._text })
+          }
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -442,6 +510,10 @@ class NewScene extends Phaser.Scene {
           image8.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Animal': image8Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -458,6 +530,10 @@ class NewScene extends Phaser.Scene {
           image11.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Animal': image11Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -474,6 +550,10 @@ class NewScene extends Phaser.Scene {
           image14.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Animal': image14Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -490,6 +570,10 @@ class NewScene extends Phaser.Scene {
           image17.clearTint();
           image4.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Animal': image17Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -506,6 +590,10 @@ class NewScene extends Phaser.Scene {
           image19.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Adjective': image19Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -522,6 +610,10 @@ class NewScene extends Phaser.Scene {
           image20.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Adjective': image20Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -538,6 +630,10 @@ class NewScene extends Phaser.Scene {
           image21.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Adjective': image21Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -554,6 +650,10 @@ class NewScene extends Phaser.Scene {
           image22.clearTint();
           image5.clearTint();
           this.firstClick = false;
+
+          this.puzzlePieceMatch.push({ 'Adjective': image22Name._text })
+          localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+
         } else {
           alert('incorrect move')
         }
@@ -1034,6 +1134,7 @@ class NewScene extends Phaser.Scene {
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  variable = true
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
   @ViewChild('content') content;
