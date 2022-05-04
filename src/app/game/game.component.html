@@ -42,7 +42,7 @@
     <br>
     <br>
     <div class="game-btn">
-        <button id="doneButton" (click)="modal.dismiss('Cross click')">Next</button>
+        <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">Next</button>
     </div>
 </ng-template>
 
