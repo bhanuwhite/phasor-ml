@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Phaser from 'phaser';
 
 class NewScene extends Phaser.Scene {
@@ -1035,8 +1036,9 @@ class NewScene extends Phaser.Scene {
 export class GameComponent implements OnInit {
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
+  @ViewChild('content') content;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private modalService: NgbModal) {
     this.config = {
       type: Phaser.AUTO,
       scene: [NewScene],
@@ -1061,13 +1063,24 @@ export class GameComponent implements OnInit {
     this.phaserGame = new Phaser.Game(this.config);
   }
 
+  ngAfterViewInit() {
+    this.open(this.content);
+  }
+
   doneFunction() {
     let story = localStorage.getItem('Match');
     if (story) {
       this.router.navigate(['/madlibs/stories']);
     }
-    else{
+    else {
       alert('To Reveal Story First Match The Puzzles')
     }
   }
+
+  open(content) {
+    this.modalService.open(content, { size: 'xl' }).result.then((result) => {
+    }, (reason) => {
+    });
+  }
+
 }

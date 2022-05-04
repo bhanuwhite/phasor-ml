@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-stories',
@@ -13,7 +14,7 @@ export class StoriesComponent implements OnInit {
   // str: string = '';
   matchObj: object = {}
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef,private modalService: NgbModal) {
     let Match = JSON.parse(localStorage.getItem('Match'));
     Match.map((data) => {
       this.matchObj[Object.keys(data)[0]] = data[Object.keys(data)[0]]
@@ -55,6 +56,12 @@ export class StoriesComponent implements OnInit {
       document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
     }
     this.i++
+  }
+
+  open(content) {
+    this.modalService.open(content, { size: 'xl' }).result.then((result) => {
+    }, (reason) => {
+    });
   }
 
   revealFunction() { }
