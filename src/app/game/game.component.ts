@@ -749,7 +749,7 @@ class NewScene extends Phaser.Scene {
       console.log(pointer, gameObject);
       console.log(gameObject.texture.key, '--', gameObject.x, gameObject.y)
 
-      if (this.firstClick == false) {
+      if (this.firstClick == false && JSON.parse(localStorage.getItem('popupClose'))) {
         if (gameObject.x > 430) {
           alert('incorrect move')
           if (gameObject.texture.key == 'p6') {
@@ -1160,7 +1160,8 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.removeItem('Match')
+    localStorage.removeItem('Match');
+    localStorage.removeItem('popupClose');
     this.phaserGame = new Phaser.Game(this.config);
   }
 
@@ -1179,8 +1180,10 @@ export class GameComponent implements OnInit {
   }
 
   open(content) {
+    localStorage.removeItem('popupClose')
     this.modalService.open(content, { size: 'xl' }).result.then((result) => {
     }, (reason) => {
+      localStorage.setItem('popupClose',JSON.stringify(true))
     });
   }
 
