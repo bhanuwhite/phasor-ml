@@ -118,6 +118,28 @@ ul li i:hover {
     }
 }
 
+.game-btn1 {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+
+    button {
+        border: 1px solid #737373;
+        padding: 10px 20px;
+        border-radius: 3px;
+        background-color: #737373;
+        color: #ffffff;
+        // font-size: 15px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #737373;
+        }
+    }
+}
+
 #storyHight {
     font-size: 20px;
 }
