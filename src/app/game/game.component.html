@@ -1,10 +1,26 @@
-<div class="gameTitle">
-    <h1 class="madTitle">MadLib</h1>
-</div>
+<div class="main-content-sec">
+    <div class="left-side-sec">
+        <ul>
+            <li [routerLink]="['/madlibs']">
+                <div><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <div class="icon-text">Back</div>
+            </li>
+            <li>
+                <div><i class="fa fa-question" aria-hidden="true"></i></div>
+                <div class="icon-text">Instructions</div>
+            </li>
+        </ul>
+    </div>
 
-<div id="gameContainer">
-</div>
+    <div class="right-side-sec">
+        <div class="title">A Garden for Room 8</div>
+        <div class="subtitle">Match the puzzle pieces together then click DONE to reveal a silly story.</div>
 
-<div class="game-btn">
-    <button id="doneButton" (click)="doneFunction()">DONE</button>
+        <div id="gameContainer">
+        </div>
+
+        <div class="game-btn">
+            <button id="doneButton" (click)="doneFunction()">DONE</button>
+        </div>
+    </div>
 </div>

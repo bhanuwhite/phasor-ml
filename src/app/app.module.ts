@@ -4,15 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MadlibsComponent } from './madlibs/madlibs.component';
+import { StoriesComponent } from './stories/stories.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent
+    GameComponent,
+    DashboardComponent,
+    MadlibsComponent,
+    StoriesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

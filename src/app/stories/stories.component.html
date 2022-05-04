@@ -1,0 +1,34 @@
+<div class="main-content-sec">
+    <div class="left-side-sec">
+        <ul>
+            <li [routerLink]="['/madlibs/games']">
+                <div><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <div class="icon-text">Back</div>
+            </li>
+            <li>
+                <div><i class="fa fa-question" aria-hidden="true"></i></div>
+                <div class="icon-text">Instructions</div>
+            </li>
+        </ul>
+    </div>
+    <div class="right-side-sec">
+        <div class="title">A Garden for Room 8</div>
+        <div class="subtitle">Read the sentence then click Reveal to see a picture of the story.</div>
+        <div class="card-sec">
+            <div class="storybox">
+                <span id="storyPhase1">Last week, our teacher told the class about an exciting new project. We get to build our own
+                    community garden! Mari asked around to see what her friends planned to bring. She wrote down notes
+                    on a <b>{{matchObj['Noun1']}}</b>.</span>&nbsp;
+                <span id="storyPhase2">Sofia wants to plant <b>{{matchObj['Prural Noun']}}</b>.</span>&nbsp;
+                <span id="storyPhase3">John is going to bring a <b>{{matchObj['Noun2']}}</b> from his pet
+                    <b>{{matchObj['Animal']}}</b>.</span>&nbsp;
+                 <span id="storyPhase4">Finally, Mari decided she will plant <b>{{matchObj['Adjective']}}</b> flowers.</span>   
+
+            </div>
+            <div class="game-btn">
+                <button id="doneButton" (click)="nextFunction()">NEXT</button>
+                <!-- <button *ngIf="i >= 4" id="doneButton" (click)="revealFunction()">REVEAL</button> -->
+            </div>
+        </div>
+    </div>
+</div>

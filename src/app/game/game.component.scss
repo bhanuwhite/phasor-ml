@@ -1,25 +1,27 @@
 #gameContainer {
   overflow: hidden;
-  width: 90vh;
-  height: 90vh;
+  width: 150vh;
+  height: 75vh;
 }
 
 .game-btn {
-  position: absolute;
-  top: 80%;
-  left: 36%;
+  display: flex;
+  justify-content: center;
+  margin: 12px;
 
   button {
-    border: 1px solid #d2d2d2;
+    border: 1px solid #737373;
     padding: 10px 20px;
     border-radius: 3px;
+    background-color: #737373;
+    color: #ffffff;
     // font-size: 15px;
     font-weight: 600;
     border: none;
     cursor: pointer;
 
     &:hover {
-      background-color: rgb(197, 211, 211);
+      background-color: #737373;
     }
   }
 }
@@ -28,11 +30,70 @@
   margin: auto;
 }
 
-.gameTitle {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.main-content-sec {
+  display: flex;
+  height: 100vh;
 }
 
-.madTitle{
-  text-align: center;
+.left-side-sec {
+  flex: 0 0 auto;
+  width: auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.left-side-sec ul {
+  padding: 15px 20px 20px !important;
+  margin-top: 0;
+
+}
+
+.left-side-sec ul li {
+  list-style-type: none;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+ul li .icon-text {
+  margin-top: 10px;
+}
+
+ul li i {
+  color: #ffffff;
+  background: #9ba0a5;
+  border: 1px solid #9ba0a5 !important;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+ul li i:hover {
+  color: #9ba0a5;
+  background: #ffffff;
+}
+
+.right-side-sec {
+  flex: 1 0 0%;
+  padding: 25px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }

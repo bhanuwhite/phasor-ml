@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Phaser from 'phaser';
 
 class NewScene extends Phaser.Scene {
@@ -14,8 +15,16 @@ class NewScene extends Phaser.Scene {
   debug: any;
   clickMatchObject: object = { "key": '', "match": '' };
   firstClick: boolean = false;
-  image5Content: string[] = ["What is the", "Largest", "Animal"];
-  enableDoneButton: string[] = [];
+  puzzlePieceMatch: object[] = [];
+
+  story1: any = [{
+    'Prural Noun': ['Dolls', 'Bread', 'Globes', 'Books'],
+    'Noun1': ['Orage', 'Shell', 'Box', 'Shoe', 'String'],
+    'Noun2': ['Orage', 'Shell', 'Box', 'Shoe', 'String'],
+    'Animal': ['Mouse', 'Kitten(Lost Pet)', 'Hedgehog', 'Bee'],
+    'Adjective': ['Huge', 'Purple', 'Tired', 'Loud']
+  }]
+
   private background: Phaser.GameObjects.Image;
 
   constructor() {
@@ -23,49 +32,64 @@ class NewScene extends Phaser.Scene {
   }
 
   preload() {
+    let story1 = Object.keys(this.story1[0])
+    story1.map((data, index) => {
+      if (index == 0) {
+        this.load.image('p1', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a1.svg');
+      }
+      else if (index == 1) {
+        this.load.image('p2', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d1.svg');
+      }
+      else if (index == 2) {
+        this.load.image('p3', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d1.svg');
+      }
+      else if (index == 3) {
+        this.load.image('p4', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c1.svg');
+      }
+      else if (index == 4) {
+        this.load.image('p5', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b1.svg');
+      }
+    })
 
-    // this.load.image('p1', 'assets/images/1stPanel/1.png');
-    // this.load.image('p2', 'assets/images/1stPanel/2.png');
-    // this.load.image('p3', 'assets/images/1stPanel/3.png');
-    // this.load.image('p4', 'assets/images/1stPanel/4.png');
-    // this.load.image('p5', 'assets/images/1stPanel/5.png');
+    story1.forEach((data, index) => {
+      this.story1[0][data].forEach((data1, index1) => {
+        if (index == 0) {
+          this.load.image('p6', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
+          this.load.image('p9', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
+          this.load.image('p12', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
+          this.load.image('p15', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
+        }
+        if (index == 1) {
+          this.load.image('p7', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p10', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p13', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p16', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p18', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+        }
+        if (index == 2) {
+          this.load.image('p7', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p10', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p13', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p16', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+          this.load.image('p18', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
+        }
+        if (index == 3) {
+          this.load.image('p8', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
+          this.load.image('p11', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
+          this.load.image('p14', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
+          this.load.image('p17', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
+        }
+        if (index == 4) {
+          this.load.image('p19', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
+          this.load.image('p20', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
+          this.load.image('p21', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
+          this.load.image('p22', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
+        }
+        console.log(index, index1)
+      })
+    })
 
-
-    // this.load.image('p6', 'assets/images/2ndPanel/1.png');
-    // this.load.image('p7', 'assets/images/2ndPanel/2.png');
-    // this.load.image('p8', 'assets/images/2ndPanel/3.png');
-    // this.load.image('p9', 'assets/images/2ndPanel/4.png');
-    // this.load.image('p10', 'assets/images/2ndPanel/5.png');
-
-    this.load.image('p1', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a1.svg');
-    this.load.image('p2', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d1.svg');
-    this.load.image('p3', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_e1.svg');
-    this.load.image('p4', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c1.svg');
-    this.load.image('p5', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b1.svg');
-
-    this.load.image('p6', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
-    this.load.image('p7', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_e2.svg');
-    this.load.image('p8', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
-    this.load.image('p9', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
-    this.load.image('p10', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_e2.svg');
-    this.load.image('p11', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
-    this.load.image('p12', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
-
-    this.load.image('p13', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_e2.svg');
-    this.load.image('p14', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
-    this.load.image('p15', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
-    this.load.image('p16', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
-    this.load.image('p17', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
-    this.load.image('p18', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
-    this.load.image('p19', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
-
-    this.load.image('p20', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_d2.svg');
-    this.load.image('p21', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_c2.svg');
-    this.load.image('p22', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_a2.svg');
-    this.load.image('p23', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_e2.svg');
-    this.load.image('p24', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
-
-    this.load.image("background", "assets/images/background/Group 132.png")
+    this.load.image("background", "assets/images/background/background.png")
 
   }
 
@@ -77,62 +101,139 @@ class NewScene extends Phaser.Scene {
     this.background.displayWidth = this.sys.canvas.width;
     this.background.displayHeight = this.sys.canvas.height;
 
-    let image1 = this.add.sprite(120, 100, 'p1').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image2 = this.add.sprite(120, 300, 'p2').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image3 = this.add.sprite(120, 500, 'p3').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image4 = this.add.sprite(120, 700, 'p4').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image5 = this.add.sprite(120, 900, 'p5').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
+    let image1 = this.add.sprite(200, 150, 'p1').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image2 = this.add.sprite(200, 400, 'p2').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image3 = this.add.sprite(200, 650, 'p3').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image4 = this.add.sprite(200, 900, 'p4').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image5 = this.add.sprite(200, 1150, 'p5').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
 
-    let image6 = this.add.sprite(700, 100, 'p6').setInteractive({ cursor: 'pointer' }).setDisplaySize(220, 100);
-    let image7 = this.add.sprite(700, 280, 'p7').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image8 = this.add.sprite(700, 460, 'p8').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image9 = this.add.sprite(700, 640, 'p9').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image10 = this.add.sprite(700, 820, 'p10').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image11 = this.add.sprite(700, 1000, 'p11').setInteractive({ cursor: 'pointer' }).setDisplaySize(220, 100);
-    let image12 = this.add.sprite(700, 1180, 'p12').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
+    let image6 = this.add.sprite(1120, 150, 'p6').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image7 = this.add.sprite(1120, 400, 'p7').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image8 = this.add.sprite(1120, 650, 'p8').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image9 = this.add.sprite(1120, 900, 'p9').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image10 = this.add.sprite(1120, 1150, 'p10').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
 
-    let image13 = this.add.sprite(1000, 100, 'p13').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image14 = this.add.sprite(1000, 280, 'p14').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image15 = this.add.sprite(1000, 460, 'p15').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image16 = this.add.sprite(1000, 640, 'p16').setInteractive({ cursor: 'pointer' }).setDisplaySize(220, 100);
-    let image17 = this.add.sprite(1000, 820, 'p17').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image18 = this.add.sprite(1000, 1000, 'p18').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image19 = this.add.sprite(1000, 1180, 'p19').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
+    let image11 = this.add.sprite(1450, 150, 'p11').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image12 = this.add.sprite(1450, 400, 'p12').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image13 = this.add.sprite(1450, 650, 'p13').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image14 = this.add.sprite(1450, 900, 'p14').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image15 = this.add.sprite(1450, 1150, 'p15').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
 
-    let image20 = this.add.sprite(1300, 100, 'p20').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image21 = this.add.sprite(1300, 280, 'p21').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image22 = this.add.sprite(1300, 460, 'p22').setInteractive({ cursor: 'pointer' }).setDisplaySize(220, 100);
-    let image23 = this.add.sprite(1300, 640, 'p23').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
-    let image24 = this.add.sprite(1300, 820, 'p24').setInteractive({ cursor: 'pointer' }).setDisplaySize(180, 100);
+    let image16 = this.add.sprite(1780, 150, 'p16').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image17 = this.add.sprite(1780, 400, 'p17').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image18 = this.add.sprite(1780, 650, 'p18').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image19 = this.add.sprite(1780, 900, 'p19').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image20 = this.add.sprite(1780, 1150, 'p20').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+
+    let image21 = this.add.sprite(2110, 150, 'p21').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
+    let image22 = this.add.sprite(2110, 400, 'p22').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
 
     // Name of the puzzle pieces 
-    let image1Name = this.add.text(100, 150, 'Place', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 2.4);
-    let image2Name = this.add.text(100, 350, 'Adj', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 2.4);
-    let image3Name = this.add.text(100, 550, 'Noun', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 2.4);
-    let image4Name = this.add.text(100, 750, 'Verb', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 2.4);
-    let image5Name = this.add.text(100, 1015, this.image5Content, { font: '18px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 2.4);
 
-    let image6Name = this.add.text(700, 100, 'Woods', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image7Name = this.add.text(700, 280, 'Ant', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image8Name = this.add.text(700, 460, 'Yellow', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image9Name = this.add.text(700, 640, 'Whale', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image10Name = this.add.text(700, 820, 'Donut', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image11Name = this.add.text(700, 1000, 'School', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image12Name = this.add.text(700, 1180, 'Dance', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+    let story1 = Object.keys(this.story1[0])
+    story1.map((data, index) => {
+      if (index == 0) {
+        let image1Name = this.add.text(150, 150, data, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+      }
+      else if (index == 1) {
+        let image2Name = this.add.text(200, 400, data, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+      }
+      else if (index == 2) {
+        let image3Name = this.add.text(200, 650, data, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+      }
+      else if (index == 3) {
+        let image4Name = this.add.text(200, 900, data, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+      }
+      else if (index == 4) {
+        let image5Name = this.add.text(200, 1150, data, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+      }
+    })
 
-    let image13Name = this.add.text(1000, 100, 'Dog', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image14Name = this.add.text(1000, 280, 'Blue', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image15Name = this.add.text(1000, 460, 'Sing', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image16Name = this.add.text(1000, 640, 'Home', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image17Name = this.add.text(1000, 820, 'Swim', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image18Name = this.add.text(1000, 1000, 'Cat', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image19Name = this.add.text(1000, 1180, 'Big', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+    let image6Name;
+    let image7Name;
+    let image8Name;
+    let image9Name;
+    let image10Name;
+    let image11Name;
+    let image12Name;
+    let image13Name;
+    let image14Name;
+    let image15Name;
+    let image16Name;
+    let image17Name;
+    let image18Name;
+    let image19Name;
+    let image20Name;
+    let image21Name;
+    let image22Name;
 
-    let image20Name = this.add.text(1300, 100, 'Small', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image21Name = this.add.text(1300, 280, 'Run', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image22Name = this.add.text(1300, 460, 'Space', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
-    let image23Name = this.add.text(1300, 640, 'Car', { font: '24px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
-    let image24Name = this.add.text(1300, 820, 'Ant', { font: '24px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+    story1.forEach((data, index) => {
+      this.story1[0][data].forEach((data1, index1) => {
+        if (index == 0) {
+          if (index1 == 0) {
+            image6Name = this.add.text(1120, 150, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 1) {
+            image9Name = this.add.text(1120, 900, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 2) {
+            image12Name = this.add.text(1450, 400, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 3) {
+            image15Name = this.add.text(1450, 1150, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+        }
+
+        if (index == 1) {
+          if (index1 == 0) {
+            image7Name = this.add.text(1120, 400, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 1) {
+            image10Name = this.add.text(1120, 1150, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 2) {
+            image13Name = this.add.text(1450, 650, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 3) {
+            image16Name = this.add.text(1780, 150, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 4) {
+            image18Name = this.add.text(1780, 650, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+        }
+
+        if (index == 3) {
+          if (index1 == 0) {
+            image8Name = this.add.text(1120, 650, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 1) {
+            image11Name = this.add.text(1450, 150, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 2) {
+            image14Name = this.add.text(1450, 900, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 3) {
+            image17Name = this.add.text(1780, 400, data1, { font: '25px Arial', align: 'center', color: 'black' }).setOrigin(0.4, 0.4);
+          }
+        }
+
+        if (index == 4) {
+          if (index1 == 0) {
+            image19Name = this.add.text(1780, 900, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 1) {
+            image20Name = this.add.text(1780, 1150, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 2) {
+            image21Name = this.add.text(2110, 150, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+          if (index1 == 3) {
+            image22Name = this.add.text(2110, 400, data1, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
+          }
+        }
+
+      })
+    })
 
     // input for drag item
     this.input.setDraggable(image6);
@@ -152,8 +253,6 @@ class NewScene extends Phaser.Scene {
     this.input.setDraggable(image20);
     this.input.setDraggable(image21);
     this.input.setDraggable(image22);
-    this.input.setDraggable(image23);
-    this.input.setDraggable(image24);
     // this.input.se
 
     // compare matching object by click
@@ -192,260 +291,28 @@ class NewScene extends Phaser.Scene {
       this.clickMatchObject['match'] = 'p6'
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p6') {
-          image6.setPosition(272.29235175559563, 100)
-          image6Name.setPosition(272.29235175559563, 100)
+          image6.setPosition(411, 150)
+          image6Name.setPosition(411, 150)
           this.input.setDraggable(image6, false);
           image6.clearTint();
           image1.clearTint();
           this.firstClick = false;
-
-          this.enableDoneButton.push('p1')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
       }
     })
 
-    image11.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p11'
+    image9.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p9'
       if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p11') {
-          image11.setPosition(272.29235175559563, 100)
-          image11Name.setPosition(272.29235175559563, 100)
-          this.input.setDraggable(image11, false);
-          image11.clearTint();
+        if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p9') {
+          image9.setPosition(411, 150)
+          image9Name.setPosition(411, 150)
+          this.input.setDraggable(image9, false);
+          image9.clearTint();
           image1.clearTint();
           this.firstClick = false;
-
-          this.enableDoneButton.push('p1')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image16.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p16'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p16') {
-          image16.setPosition(272.29235175559563, 100)
-          image16Name.setPosition(272.29235175559563, 100)
-          this.input.setDraggable(image16, false);
-          image16.clearTint();
-          image1.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p1')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image22.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p22'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p22') {
-          image22.setPosition(272.29235175559563, 100)
-          image22Name.setPosition(272.29235175559563, 100)
-          this.input.setDraggable(image22, false);
-          image22.clearTint();
-          image1.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p1')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image8.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p8'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p2' && this.clickMatchObject['match'] == 'p8') {
-          image8.setPosition(262.10883632120505, 297.062423500612)
-          image8Name.setPosition(262.10883632120505, 297.062423500612)
-          this.input.setDraggable(image8, false);
-          image8.clearTint();
-          image2.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p2')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image14.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p14'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p2' && this.clickMatchObject['match'] == 'p14') {
-          image14.setPosition(262.10883632120505, 297.062423500612)
-          image14Name.setPosition(262.10883632120505, 297.062423500612)
-          this.input.setDraggable(image14, false);
-          image14.clearTint();
-          image2.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p2')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image19.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p19'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p2' && this.clickMatchObject['match'] == 'p19') {
-          image19.setPosition(262.10883632120505, 297.062423500612)
-          image19Name.setPosition(262.10883632120505, 297.062423500612)
-          this.input.setDraggable(image19, false);
-          image19.clearTint();
-          image2.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p2')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image20.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p20'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p2' && this.clickMatchObject['match'] == 'p20') {
-          image20.setPosition(262.10883632120505, 297.062423500612)
-          image20Name.setPosition(262.10883632120505, 297.062423500612)
-          this.input.setDraggable(image20, false);
-          image20.clearTint();
-          image2.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p2')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image7.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p7'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p7') {
-          image7.setPosition(255.7106120828222, 500.8466178183499)
-          image7Name.setPosition(255.7106120828222, 500.8466178183499)
-          this.input.setDraggable(image7, false);
-          image7.clearTint();
-          image3.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p3')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image10.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p10'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p10') {
-          image10.setPosition(255.7106120828222, 500.8466178183499)
-          image10Name.setPosition(255.7106120828222, 500.8466178183499)
-          this.input.setDraggable(image10, false);
-          image10.clearTint();
-          image3.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p3')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image13.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p13'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p13') {
-          image13.setPosition(255.7106120828222, 500.8466178183499)
-          image13Name.setPosition(255.7106120828222, 500.8466178183499)
-          this.input.setDraggable(image13, false);
-          image13.clearTint();
-          image3.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p3')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image23.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p23'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p3' && this.clickMatchObject['match'] == 'p23') {
-          image23.setPosition(255.7106120828222, 500.8466178183499)
-          image23Name.setPosition(255.7106120828222, 500.8466178183499)
-          this.input.setDraggable(image23, false);
-          image23.clearTint();
-          image3.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p3')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -455,19 +322,13 @@ class NewScene extends Phaser.Scene {
     image12.on('pointerup', () => {
       this.clickMatchObject['match'] = 'p12'
       if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p12') {
-          image12.setPosition(239.1304347826087, 701.7391304347827)
-          image12Name.setPosition(239.1304347826087, 701.7391304347827)
+        if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p12') {
+          image12.setPosition(411, 150)
+          image12Name.setPosition(411, 150)
           this.input.setDraggable(image12, false);
           image12.clearTint();
-          image4.clearTint();
+          image1.clearTint();
           this.firstClick = false;
-
-          this.enableDoneButton.push('p4')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -477,19 +338,141 @@ class NewScene extends Phaser.Scene {
     image15.on('pointerup', () => {
       this.clickMatchObject['match'] = 'p15'
       if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p15') {
-          image15.setPosition(239.1304347826087, 701.7391304347827)
-          image15Name.setPosition(239.1304347826087, 701.7391304347827)
+        if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p15') {
+          image15.setPosition(411, 150)
+          image15Name.setPosition(411, 150)
           this.input.setDraggable(image15, false);
           image15.clearTint();
+          image1.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image7.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p7'
+      if (this.firstClick) {
+        if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p7') {
+          this.clickMatchObject['key'] === 'p2' ? image7.setPosition(423, 400) : image7.setPosition(423, 649);
+          this.clickMatchObject['key'] === 'p2' ? image7Name.setPosition(423, 400) : image7Name.setPosition(423, 649)
+          this.input.setDraggable(image7, false);
+          image7.clearTint();
+          this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image10.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p10'
+      if (this.firstClick) {
+        if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p10') {
+          this.clickMatchObject['key'] === 'p2' ? image10.setPosition(423, 400) : image10.setPosition(423, 649);
+          this.clickMatchObject['key'] === 'p2' ? image10Name.setPosition(423, 400) : image10Name.setPosition(423, 649)
+          this.input.setDraggable(image10, false);
+          image10.clearTint();
+          this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image13.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p13'
+      if (this.firstClick) {
+        if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p13') {
+          this.clickMatchObject['key'] === 'p2' ? image13.setPosition(423, 400) : image13.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image13Name.setPosition(423, 400) : image13Name.setPosition(423, 649)
+          this.input.setDraggable(image13, false);
+          image13.clearTint();
+          this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image16.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p16'
+      if (this.firstClick) {
+        if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p16') {
+          this.clickMatchObject['key'] === 'p2' ? image16.setPosition(423, 400) : image16.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image16Name.setPosition(423, 400) : image16Name.setPosition(423, 649)
+          this.input.setDraggable(image16, false);
+          image16.clearTint();
+          this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image18.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p18'
+      if (this.firstClick) {
+        if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p18') {
+          this.clickMatchObject['key'] === 'p2' ? image18.setPosition(423, 400) : image18.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image18Name.setPosition(423, 400) : image18Name.setPosition(423, 649)
+          this.input.setDraggable(image18, false);
+          image18.clearTint();
+          this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image8.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p8'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p8') {
+          image8.setPosition(384, 902)
+          image8Name.setPosition(384, 902)
+          this.input.setDraggable(image8, false);
+          image8.clearTint();
           image4.clearTint();
           this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
 
-          this.enableDoneButton.push('p4')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
+    image11.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p11'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p11') {
+          image11.setPosition(384, 902)
+          image11Name.setPosition(384, 902)
+          this.input.setDraggable(image11, false);
+          image11.clearTint();
+          image4.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image14.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p14'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p14') {
+          image14.setPosition(384, 902)
+          image14Name.setPosition(384, 902)
+          this.input.setDraggable(image14, false);
+          image14.clearTint();
+          image4.clearTint();
+          this.firstClick = false;
         } else {
           alert('incorrect move')
         }
@@ -500,18 +483,44 @@ class NewScene extends Phaser.Scene {
       this.clickMatchObject['match'] = 'p17'
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p17') {
-          image17.setPosition(239.1304347826087, 701.7391304347827)
-          image17Name.setPosition(239.1304347826087, 701.7391304347827)
+          image17.setPosition(384, 902)
+          image17Name.setPosition(384, 902)
           this.input.setDraggable(image17, false);
           image17.clearTint();
           image4.clearTint();
           this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
 
-          this.enableDoneButton.push('p4')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
+    image19.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p19'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p19') {
+          image19.setPosition(408, 1152)
+          image19Name.setPosition(408, 1152)
+          this.input.setDraggable(image19, false);
+          image19.clearTint();
+          image5.clearTint();
+          this.firstClick = false;
+        } else {
+          alert('incorrect move')
+        }
+      }
+    })
+
+    image20.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p20'
+      if (this.firstClick) {
+        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p20') {
+          image20.setPosition(408, 1152)
+          image20Name.setPosition(408, 1152)
+          this.input.setDraggable(image20, false);
+          image20.clearTint();
+          image5.clearTint();
+          this.firstClick = false;
         } else {
           alert('incorrect move')
         }
@@ -521,85 +530,29 @@ class NewScene extends Phaser.Scene {
     image21.on('pointerup', () => {
       this.clickMatchObject['match'] = 'p21'
       if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p21') {
-          image21.setPosition(239.1304347826087, 701.7391304347827)
-          image21Name.setPosition(239.1304347826087, 701.7391304347827)
+        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p21') {
+          image21.setPosition(408, 1152)
+          image21Name.setPosition(408, 1152)
           this.input.setDraggable(image21, false);
           image21.clearTint();
-          image4.clearTint();
+          image5.clearTint();
           this.firstClick = false;
-
-          this.enableDoneButton.push('p4')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
       }
     })
 
-    image9.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p9'
+    image22.on('pointerup', () => {
+      this.clickMatchObject['match'] = 'p22'
       if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p9') {
-          image9.setPosition(252.53503337944312, 899.8195697432338)
-          image9Name.setPosition(252.53503337944312, 899.8195697432338)
-          this.input.setDraggable(image9, false);
-          image9.clearTint();
+        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p22') {
+          image22.setPosition(408, 1152)
+          image22Name.setPosition(408, 1152)
+          this.input.setDraggable(image22, false);
+          image22.clearTint();
           image5.clearTint();
           this.firstClick = false;
-
-          this.enableDoneButton.push('p5')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image18.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p18'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p18') {
-          image18.setPosition(252.53503337944312, 899.8195697432338)
-          image18Name.setPosition(252.53503337944312, 899.8195697432338)
-          this.input.setDraggable(image18, false);
-          image18.clearTint();
-          image5.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p5')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
-        } else {
-          alert('incorrect move')
-        }
-      }
-    })
-
-    image24.on('pointerup', () => {
-      this.clickMatchObject['match'] = 'p24'
-      if (this.firstClick) {
-        if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p24') {
-          image24.setPosition(252.53503337944312, 899.8195697432338)
-          image24Name.setPosition(252.53503337944312, 899.8195697432338)
-          this.input.setDraggable(image24, false);
-          image24.clearTint();
-          image5.clearTint();
-          this.firstClick = false;
-
-          this.enableDoneButton.push('p5')
-          if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-            document.getElementById('doneButton').style.background = "#90EE90"
-          }
-          console.log(this.enableDoneButton)
         } else {
           alert('incorrect move')
         }
@@ -620,24 +573,6 @@ class NewScene extends Phaser.Scene {
       // console.log(dragX, dragY)
       gameObject.x = dragX;
       gameObject.y = dragY;
-      if (gameObject.texture.key == 'p6' || gameObject.texture.key == 'p11' || gameObject.texture.key == 'p16' || gameObject.texture.key == 'p22') {
-        this.enableDoneButton.push('p1')
-      }
-      if (gameObject.texture.key == 'p8' || gameObject.texture.key == 'p14' || gameObject.texture.key == 'p19' || gameObject.texture.key == 'p20') {
-        this.enableDoneButton.push('p2')
-      }
-      if (gameObject.texture.key == 'p7' || gameObject.texture.key == 'p10' || gameObject.texture.key == 'p13' || gameObject.texture.key == 'p23') {
-        this.enableDoneButton.push('p3')
-      }
-      if (gameObject.texture.key == 'p12' || gameObject.texture.key == 'p15' || gameObject.texture.key == 'p17' || gameObject.texture.key == 'p21') {
-        this.enableDoneButton.push('p4')
-      }
-      if (gameObject.texture.key == 'p9' || gameObject.texture.key == 'p18' || gameObject.texture.key == 'p24') {
-        this.enableDoneButton.push('p5')
-      }
-      if (this.enableDoneButton.includes('p1') && this.enableDoneButton.includes('p2') && this.enableDoneButton.includes('p3') && this.enableDoneButton.includes('p4') && this.enableDoneButton.includes('p5')) {
-        document.getElementById('doneButton').style.background = "#90EE90"
-      }
 
       if (gameObject.texture.key == 'p6') {
         image6Name.x = dragX
@@ -707,293 +642,309 @@ class NewScene extends Phaser.Scene {
         image22Name.x = dragX
         image22Name.y = dragY
       }
-      if (gameObject.texture.key == 'p23') {
-        image23Name.x = dragX
-        image23Name.y = dragY
-      }
-      if (gameObject.texture.key == 'p24') {
-        image24Name.x = dragX
-        image24Name.y = dragY
-      }
     });
 
     this.input.on('dragend', (pointer, gameObject) => {
       console.log(pointer, gameObject);
-      let mapping = [{ key: 'p1', val: 200, match: 'p6' }, { key: 'p1', val: 200, match: 'p11' }, { key: 'p1', val: 200, match: 'p16' }, { key: 'p1', val: 200, match: 'p22' },
-      { key: 'p2', val: 200, match: 'p8' }, { key: 'p2', val: 200, match: 'p14' }, { key: 'p2', val: 200, match: 'p19' }, { key: 'p2', val: 200, match: 'p20' },
-      { key: 'p3', val: 200, match: 'p7' }, { key: 'p3', val: 200, match: 'p10' }, { key: 'p3', val: 200, match: 'p13' }, { key: 'p3', val: 200, match: 'p23' },
-      { key: 'p4', val: 200, match: 'p12' }, { key: 'p4', val: 200, match: 'p15' }, { key: 'p4', val: 200, match: 'p17' }, { key: 'p4', val: 200, match: 'p21' },
-      { key: 'p5', val: 200, match: 'p9' }, { key: 'p5', val: 200, match: 'p18' }, { key: 'p5', val: 200, match: 'p24' }]
-      let obj = mapping.find(o => o.match === gameObject.texture.key);
-      console.log(obj)
-      // console.log(gameObject.x, gameObject.y)
+      console.log(gameObject.texture.key, '--', gameObject.x, gameObject.y)
+
       if (this.firstClick == false) {
-        if (gameObject.x > 290) {
+        if (gameObject.x > 430) {
           alert('incorrect move')
-          if (obj.match == 'p6') {
-            image6.setPosition(700, 100)
-            image6Name.setPosition(700, 100);
+          if (gameObject.texture.key == 'p6') {
+            image6.setPosition(1120, 150)
+            image6Name.setPosition(1120, 150);
             image6.clearTint();
           }
           else if (gameObject.texture.key == 'p7') {
-            image7.setPosition(700, 280)
-            image7Name.setPosition(700, 280);
+            image7.setPosition(1120, 400)
+            image7Name.setPosition(1120, 400);
             image7.clearTint()
           }
           else if (gameObject.texture.key == 'p8') {
-            image8.setPosition(700, 460)
-            image8Name.setPosition(700, 460);
+            image8.setPosition(1120, 650)
+            image8Name.setPosition(1120, 650);
             image8.clearTint();
           }
           else if (gameObject.texture.key == 'p9') {
-            image9.setPosition(700, 640)
-            image9Name.setPosition(700, 640)
+            image9.setPosition(1120, 900)
+            image9Name.setPosition(1120, 900)
             image9.clearTint();
           }
           else if (gameObject.texture.key == 'p10') {
-            image10.setPosition(700, 820)
-            image10Name.setPosition(700, 820)
+            image10.setPosition(1120, 1150)
+            image10Name.setPosition(1120, 1150)
             image10.clearTint();
           }
           else if (gameObject.texture.key == 'p11') {
-            image11.setPosition(700, 1000)
-            image11Name.setPosition(700, 1000);
+            image11.setPosition(1450, 150)
+            image11Name.setPosition(1450, 150);
             image11.clearTint();
           }
           else if (gameObject.texture.key == 'p12') {
-            image12.setPosition(700, 1180)
-            image12Name.setPosition(700, 1180);
+            image12.setPosition(1450, 400)
+            image12Name.setPosition(1450, 400);
             image12.clearTint();
           }
           else if (gameObject.texture.key == 'p13') {
-            image13.setPosition(1000, 100)
-            image13Name.setPosition(1000, 100);
+            image13.setPosition(1450, 650)
+            image13Name.setPosition(1450, 650);
             image13.clearTint();
           }
           else if (gameObject.texture.key == 'p14') {
-            image14.setPosition(1000, 280)
-            image14Name.setPosition(1000, 280);
+            image14.setPosition(1450, 900)
+            image14Name.setPosition(1450, 900);
             image14.clearTint();
           }
           else if (gameObject.texture.key == 'p15') {
-            image15.setPosition(1000, 460)
-            image15Name.setPosition(1000, 460);
+            image15.setPosition(1450, 1150)
+            image15Name.setPosition(1450, 1150);
             image15.clearTint();
           }
           else if (gameObject.texture.key == 'p16') {
-            image16.setPosition(1000, 640)
-            image16Name.setPosition(1000, 640);
+            image16.setPosition(1780, 150)
+            image16Name.setPosition(1780, 150);
             image16.clearTint();
           }
           else if (gameObject.texture.key == 'p17') {
-            image17.setPosition(1000, 820)
-            image17Name.setPosition(1000, 820);
+            image17.setPosition(1780, 400)
+            image17Name.setPosition(1780, 400);
             image17.clearTint();
           }
           else if (gameObject.texture.key == 'p18') {
-            image18.setPosition(1000, 1000)
-            image18Name.setPosition(1000, 1000);
+            image18.setPosition(1780, 650)
+            image18Name.setPosition(1780, 650);
             image18.clearTint();
           }
           else if (gameObject.texture.key == 'p19') {
-            image19.setPosition(1000, 1180)
-            image19Name.setPosition(1000, 1180);
+            image19.setPosition(1780, 900)
+            image19Name.setPosition(1780, 900);
             image19.clearTint();
           }
           else if (gameObject.texture.key == 'p20') {
-            image20.setPosition(1300, 100)
-            image20Name.setPosition(1300, 100);
+            image20.setPosition(1780, 1150)
+            image20Name.setPosition(1780, 1150);
             image20.clearTint();
           }
           else if (gameObject.texture.key == 'p21') {
-            image21.setPosition(1300, 280)
-            image21Name.setPosition(1300, 280);
+            image21.setPosition(2110, 150)
+            image21Name.setPosition(2110, 150);
             image21.clearTint();
           }
           else if (gameObject.texture.key == 'p22') {
-            image22.setPosition(1300, 460)
-            image22Name.setPosition(1300, 460);
+            image22.setPosition(2110, 400)
+            image22Name.setPosition(2110, 400);
             image22.clearTint();
-          }
-          else if (gameObject.texture.key == 'p23') {
-            image23.setPosition(1300, 640)
-            image23Name.setPosition(1300, 640);
-            image23.clearTint();
-          }
-          else if (gameObject.texture.key == 'p24') {
-            image24.setPosition(1300, 820)
-            image24Name.setPosition(1300, 820);
-            image24.clearTint();
           }
         }
         else {
-
-          if (obj.match == 'p6' || obj.match == 'p11' || obj.match == 'p16' || obj.match == 'p22') {
-            if (gameObject.y < 110 && gameObject.y > 95) {
+          if (gameObject.texture.key == 'p6' || gameObject.texture.key == 'p9' || gameObject.texture.key == 'p12' || gameObject.texture.key == 'p15') {
+            if (gameObject.y < 160 && gameObject.y > 140) {
               gameObject.disableInteractive();
               gameObject.clearTint();
-              gameObject.x = 272.29235175559563;
-              gameObject.y = 100
+              gameObject.x = 411;
+              gameObject.y = 150
+
+              gameObject.texture.key == 'p6' ?
+                this.puzzlePieceMatch.push({ 'Prural Noun': image6Name._text }) :
+                gameObject.texture.key == 'p9' ?
+                  this.puzzlePieceMatch.push({ 'Prural Noun': image9Name._text }) :
+                  gameObject.texture.key == 'p12' ?
+                    this.puzzlePieceMatch.push({ 'Prural Noun': image12Name._text }) :
+                    this.puzzlePieceMatch.push({ 'Prural Noun': image15Name._text })
+
+              localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
+
             }
             else {
               alert('incorrect move')
-              if (obj.match == 'p6') {
-                image6.setPosition(700, 100)
-                image6Name.setPosition(700, 100);
+              if (gameObject.texture.key == 'p6') {
+                image6.setPosition(1120, 150)
+                image6Name.setPosition(1120, 150);
                 image6.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p11') {
-                image11.setPosition(700, 1000)
-                image11Name.setPosition(700, 1000);
-                image11.clearTint();
+              else if (gameObject.texture.key == 'p9') {
+                image9.setPosition(1120, 900)
+                image9Name.setPosition(1120, 900);
+                image9.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p16') {
-                image16.setPosition(1000, 640)
-                image16Name.setPosition(1000, 640);
-                image16.clearTint();
+              else if (gameObject.texture.key == 'p12') {
+                image12.setPosition(1450, 400)
+                image12Name.setPosition(1450, 400);
+                image12.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p22') {
-                image22.setPosition(1300, 460)
-                image22Name.setPosition(1300, 460);
-                image22.clearTint();
+              else if (gameObject.texture.key == 'p15') {
+                image15.setPosition(1450, 1150)
+                image15Name.setPosition(1450, 1150);
+                image15.clearTint();
               }
-
             }
           }
 
-          if (obj.match == 'p8' || obj.match == 'p14' || obj.match == 'p19' || obj.match == 'p20') {
-            if (gameObject.y < 305 && gameObject.y > 290) {
+          if (gameObject.texture.key == 'p7' || gameObject.texture.key == 'p10' || gameObject.texture.key == 'p13' || gameObject.texture.key == 'p16' || gameObject.texture.key == 'p18') {
+            if (gameObject.y < 410 && gameObject.y > 390) {
               gameObject.disableInteractive();
               gameObject.clearTint();
-              gameObject.x = 262.10883632120505
-              gameObject.y = 297.062423500612
+              gameObject.x = 423
+              gameObject.y = 400
+
+              gameObject.texture.key == 'p7' ?
+                this.puzzlePieceMatch.push({ 'Noun1': image7Name._text }) :
+                gameObject.texture.key == 'p10' ?
+                  this.puzzlePieceMatch.push({ 'Noun1': image10Name._text }) :
+                  gameObject.texture.key == 'p13' ?
+                    this.puzzlePieceMatch.push({ 'Noun1': image13Name._text }) :
+                    gameObject.texture.key == 'p16' ?
+                      this.puzzlePieceMatch.push({ 'Noun1': image16Name._text }) :
+                      this.puzzlePieceMatch.push({ 'Noun1': image18Name._text })
+
+              localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
+
+            }
+            else if (gameObject.y < 659 && gameObject.y > 639) {
+              gameObject.disableInteractive();
+              gameObject.clearTint();
+              gameObject.x = 423
+              gameObject.y = 649
+
+              gameObject.texture.key == 'p7' ?
+                this.puzzlePieceMatch.push({ 'Noun2': image7Name._text }) :
+                gameObject.texture.key == 'p10' ?
+                  this.puzzlePieceMatch.push({ 'Noun2': image10Name._text }) :
+                  gameObject.texture.key == 'p13' ?
+                    this.puzzlePieceMatch.push({ 'Noun2': image13Name._text }) :
+                    gameObject.texture.key == 'p16' ?
+                      this.puzzlePieceMatch.push({ 'Noun2': image16Name._text }) :
+                      this.puzzlePieceMatch.push({ 'Noun2': image18Name._text })
+
+              localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
+
             }
             else {
               alert('incorrect move')
-              if (gameObject.texture.key == 'p8') {
-                image8.setPosition(700, 460)
-                image8Name.setPosition(700, 460);
-                image8.clearTint();
+              if (gameObject.texture.key == 'p7') {
+                image7.setPosition(1120, 400)
+                image7Name.setPosition(1120, 400);
+                image7.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p14') {
-                image14.setPosition(1000, 280)
-                image14Name.setPosition(1000, 280);
-                image14.clearTint();
+              else if (gameObject.texture.key == 'p10') {
+                image10.setPosition(1120, 1150)
+                image10Name.setPosition(1120, 1150);
+                image10.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p19') {
-                image19.setPosition(1000, 1180)
-                image19Name.setPosition(1000, 1180);
-                image19.clearTint();
+              else if (gameObject.texture.key == 'p13') {
+                image13.setPosition(1450, 650)
+                image13Name.setPosition(1450, 650);
+                image13.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p20') {
-                image20.setPosition(1300, 100)
-                image20Name.setPosition(1300, 100);
+              else if (gameObject.texture.key == 'p16') {
+                image16.setPosition(1780, 150)
+                image16Name.setPosition(1780, 150);
+                image16.clearTint()
+              }
+
+              else if (gameObject.texture.key == 'p18') {
+                image20.setPosition(1780, 650)
+                image20Name.setPosition(1780, 650);
                 image20.clearTint()
               }
             }
           }
 
-          if (obj.match == 'p12' || obj.match == 'p15' || obj.match == 'p17' || obj.match == 'p21') {
-            if (gameObject.y < 710 && gameObject.y > 695) {
+          if (gameObject.texture.key == 'p8' || gameObject.texture.key == 'p11' || gameObject.texture.key == 'p14' || gameObject.texture.key == 'p17') {
+            if (gameObject.y < 912 && gameObject.y > 892) {
               gameObject.disableInteractive();
               gameObject.clearTint();
-              gameObject.x = 239.1304347826087;
-              gameObject.y = 701.7391304347827;
+              gameObject.x = 384;
+              gameObject.y = 902;
+
+              gameObject.texture.key == 'p8' ?
+                this.puzzlePieceMatch.push({ 'Animal': image8Name._text }) :
+                gameObject.texture.key == 'p11' ?
+                  this.puzzlePieceMatch.push({ 'Animal': image11Name._text }) :
+                  gameObject.texture.key == 'p14' ?
+                    this.puzzlePieceMatch.push({ 'Animal': image14Name._text }) :
+                    this.puzzlePieceMatch.push({ 'Animal': image17Name._text });
+
+              localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
             }
             else {
               alert('incorrect move')
-              if (gameObject.texture.key == 'p12') {
-                image12.setPosition(700, 1180)
-                image12Name.setPosition(700, 1180);
-                image12.clearTint();
+              if (gameObject.texture.key == 'p8') {
+                image8.setPosition(1120, 650)
+                image8Name.setPosition(1120, 650);
+                image8.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p15') {
-                image15.setPosition(1000, 460)
-                image15Name.setPosition(1000, 460)
-                image15.clearTint()
+              else if (gameObject.texture.key == 'p11') {
+                image11.setPosition(1450, 150)
+                image11Name.setPosition(1450, 150)
+                image11.clearTint()
               }
+              else if (gameObject.texture.key == 'p14') {
+                image14.setPosition(1450, 900)
+                image14Name.setPosition(1450, 900)
+                image14.clearTint()
+              }
+
               else if (gameObject.texture.key == 'p17') {
-                image17.setPosition(1000, 820)
-                image17Name.setPosition(1000, 820)
+                image17.setPosition(1780, 400)
+                image17Name.setPosition(1780, 400)
                 image17.clearTint()
-              }
-
-              else if (gameObject.texture.key == 'p21') {
-                image21.setPosition(1300, 280)
-                image21Name.setPosition(1300, 280)
-                image21.clearTint()
               }
             }
           }
 
-          if (obj.match == 'p9' || obj.match == 'p18' || obj.match == 'p24') {
-            if (gameObject.y < 910 && gameObject.y > 895) {
+          if (gameObject.texture.key == 'p19' || gameObject.texture.key == 'p20' || gameObject.texture.key == 'p21' || gameObject.texture.key == 'p22') {
+            if (gameObject.y < 1162 && gameObject.y > 1142) {
               gameObject.disableInteractive();
               gameObject.clearTint();
-              gameObject.x = 252.53503337944312;
-              gameObject.y = 899.8195697432338
+              gameObject.x = 408;
+              gameObject.y = 1152
+
+              gameObject.texture.key == 'p19' ?
+                this.puzzlePieceMatch.push({ 'Adjective': image19Name._text }) :
+                gameObject.texture.key == 'p20' ?
+                  this.puzzlePieceMatch.push({ 'Adjective': image20Name._text }) :
+                  gameObject.texture.key == 'p21' ?
+                    this.puzzlePieceMatch.push({ 'Adjective': image21Name._text }) :
+                    this.puzzlePieceMatch.push({ 'Adjective': image22Name._text });
+
+              localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
+
             }
             else {
               alert('incorrect move');
-              if (gameObject.texture.key == 'p9') {
-                image9.setPosition(700, 640)
-                image9Name.setPosition(700, 640);
-                image9.clearTint();
+              if (gameObject.texture.key == 'p19') {
+                image19.setPosition(1780, 900)
+                image19Name.setPosition(1780, 900);
+                image19.clearTint();
               }
 
-              else if (gameObject.texture.key == 'p18') {
-                image18.setPosition(1000, 1000)
-                image18Name.setPosition(1000, 1000);
-                image18.clearTint();
+              else if (gameObject.texture.key == 'p20') {
+                image20.setPosition(1780, 1150)
+                image20Name.setPosition(1780, 1150);
+                image20.clearTint();
               }
-              else if (gameObject.texture.key == 'p24') {
-                image24.setPosition(1300, 820)
-                image24Name.setPosition(1300, 820);
-                image24.clearTint();
+              else if (gameObject.texture.key == 'p21') {
+                image20.setPosition(2110, 150)
+                image20Name.setPosition(2110, 150);
+                image20.clearTint();
+              }
+              else if (gameObject.texture.key == 'p22') {
+                image20.setPosition(2110, 400)
+                image20Name.setPosition(2110, 400);
+                image20.clearTint();
               }
             }
           }
 
-          if (obj.match == 'p7' || obj.match == 'p10' || obj.match == 'p13' || obj.match == 'p23') {
-            if (gameObject.y < 505 && gameObject.y > 495) {
-              gameObject.disableInteractive();
-              gameObject.clearTint();
-              gameObject.x = 255.7106120828222
-              gameObject.y = 500.8466178183499
-            }
-            else {
-              alert('incorrect move')
-              if (gameObject.texture.key == 'p7') {
-                image7.setPosition(700, 280)
-                image7Name.setPosition(700, 280)
-                image7.clearTint();
-              }
-              else if (gameObject.texture.key == 'p10') {
-                image10.setPosition(700, 820)
-                image10Name.setPosition(700, 820);
-                image10.clearTint();
-              }
-
-              else if (gameObject.texture.key == 'p13') {
-                image13.setPosition(1000, 100)
-                image13Name.setPosition(1000, 100);
-                image13.clearTint();
-              }
-              else if (gameObject.texture.key == 'p23') {
-                image23.setPosition(1300, 640);
-                image23Name.setPosition(1300, 640);
-                image23.clearTint()
-              }
-
-            }
-          }
         }
       }
       // if(gameObject.x>250)
@@ -1085,7 +1036,7 @@ export class GameComponent implements OnInit {
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
 
-  constructor() {
+  constructor(private router: Router) {
     this.config = {
       type: Phaser.AUTO,
       scene: [NewScene],
@@ -1094,7 +1045,7 @@ export class GameComponent implements OnInit {
         mode: Phaser.Scale.FIT,
         parent: 'gameContainer',
         height: 1300,
-        width: 1500
+        width: 2500
       },
       physics: {
         default: 'arcade',
@@ -1106,10 +1057,17 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.removeItem('Match')
     this.phaserGame = new Phaser.Game(this.config);
   }
 
   doneFunction() {
-    alert('puzzle pieces sucessfully matched')
+    let story = localStorage.getItem('Match');
+    if (story) {
+      this.router.navigate(['/madlibs/stories']);
+    }
+    else{
+      alert('To Reveal Story First Match The Puzzles')
+    }
   }
 }
