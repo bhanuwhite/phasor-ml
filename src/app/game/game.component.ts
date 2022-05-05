@@ -299,14 +299,25 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Prural Noun') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition'));
+              console.log(eval(PiecesPosition['piece']))
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           if (this.clickMatchObject['match'] == 'p6') {
             this.puzzlePieceMatch.push({ 'Prural Noun': image6Name._text })
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image6', 'pieceName': 'image6Name', 'x': 1120, 'y': 150 }));
 
         } else {
-
-          // alert('incorrect move')
+          alert('incorrect move')
         }
       }
     })
@@ -322,11 +333,21 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Prural Noun') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           if (this.clickMatchObject['match'] == 'p9') {
             this.puzzlePieceMatch.push({ 'Prural Noun': image9Name._text })
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
-
+          localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image9', 'pieceName': 'image9Name', 'x': 1120, 'y': 900 }));
 
         } else {
           alert('incorrect move')
@@ -345,11 +366,21 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Prural Noun') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           if (this.clickMatchObject['match'] == 'p12') {
             this.puzzlePieceMatch.push({ 'Prural Noun': image12Name._text })
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
-
+          localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image12', 'pieceName': 'image12Name', 'x': 1450, 'y': 400 }));
 
         } else {
           alert('incorrect move')
@@ -368,11 +399,21 @@ class NewScene extends Phaser.Scene {
           image1.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Prural Noun') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           if (this.clickMatchObject['match'] == 'p15') {
             this.puzzlePieceMatch.push({ 'Prural Noun': image15Name._text })
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
-
+          localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image15', 'pieceName': 'image15Name', 'x': 1450, 'y': 1150 }));
 
         } else {
           alert('incorrect move')
@@ -392,9 +433,30 @@ class NewScene extends Phaser.Scene {
           this.firstClick = false;
 
           if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p7') {
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun1') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition1'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
+
             this.puzzlePieceMatch.push({ 'Noun1': image7Name._text })
+            localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image7', 'pieceName': 'image7Name', 'x': 1120, 'y': 400 }));
           } else {
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun2') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition2'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
             this.puzzlePieceMatch.push({ 'Noun2': image7Name._text })
+            localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image7', 'pieceName': 'image7Name', 'x': 1120, 'y': 400 }));
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
@@ -416,9 +478,31 @@ class NewScene extends Phaser.Scene {
           this.firstClick = false;
 
           if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p10') {
-            this.puzzlePieceMatch.push({ 'Noun1': image10Name._text })
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun1') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition1'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
+            this.puzzlePieceMatch.push({ 'Noun1': image10Name._text });
+
+            localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image10', 'pieceName': 'image10Name', 'x': 1120, 'y': 1150 }));
           } else {
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun2') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition2'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
             this.puzzlePieceMatch.push({ 'Noun2': image10Name._text })
+
+            localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image10', 'pieceName': 'image10Name', 'x': 1120, 'y': 1150 }));
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
@@ -440,9 +524,31 @@ class NewScene extends Phaser.Scene {
           this.firstClick = false;
 
           if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p13') {
-            this.puzzlePieceMatch.push({ 'Noun1': image13Name._text })
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun1') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition1'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
+            this.puzzlePieceMatch.push({ 'Noun1': image13Name._text });
+
+            localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image13', 'pieceName': 'image13Name', 'x': 1450, 'y': 650 }));
           } else {
-            this.puzzlePieceMatch.push({ 'Noun2': image13Name._text })
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun2') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition2'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
+            this.puzzlePieceMatch.push({ 'Noun2': image13Name._text });
+
+            localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image13', 'pieceName': 'image13Name', 'x': 1450, 'y': 650 }));
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
@@ -464,9 +570,31 @@ class NewScene extends Phaser.Scene {
           this.firstClick = false;
 
           if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p16') {
-            this.puzzlePieceMatch.push({ 'Noun1': image16Name._text })
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun1') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition1'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
+            this.puzzlePieceMatch.push({ 'Noun1': image16Name._text });
+
+            localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image16', 'pieceName': 'image16Name', 'x': 1780, 'y': 150 }));
           } else {
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun2') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition2'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
             this.puzzlePieceMatch.push({ 'Noun2': image16Name._text })
+
+            localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image16', 'pieceName': 'image16Name', 'x': 1780, 'y': 150 }));
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
@@ -488,9 +616,31 @@ class NewScene extends Phaser.Scene {
           this.firstClick = false;
 
           if (this.clickMatchObject['key'] == 'p2' && this.clickMatchObject['match'] == 'p18') {
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun1') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition1'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
             this.puzzlePieceMatch.push({ 'Noun1': image18Name._text })
+
+            localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image18', 'pieceName': 'image18Name', 'x': 1780, 'y': 650 }));
           } else {
-            this.puzzlePieceMatch.push({ 'Noun2': image18Name._text })
+            // ---------------------------store Matching object----------------
+            this.puzzlePieceMatch.filter((data, index) => {
+              if (Object.keys(data)[0] == 'Noun2') {
+                this.puzzlePieceMatch.splice(index, 1);
+                let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition2'));
+                eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+                eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              }
+            })
+            this.puzzlePieceMatch.push({ 'Noun2': image18Name._text });
+
+            localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image18', 'pieceName': 'image18Name', 'x': 1780, 'y': 650 }));
           }
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
@@ -511,8 +661,19 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Animal') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition3'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Animal': image8Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image8', 'pieceName': 'image8Name', 'x': 1120, 'y': 650 }));
 
         } else {
           alert('incorrect move')
@@ -531,8 +692,19 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Animal') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition3'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Animal': image11Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image11', 'pieceName': 'image11Name', 'x': 1450, 'y': 150 }));
 
         } else {
           alert('incorrect move')
@@ -551,8 +723,19 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Animal') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition3'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Animal': image14Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image14', 'pieceName': 'image14Name', 'x': 1450, 'y': 900 }));
 
         } else {
           alert('incorrect move')
@@ -571,8 +754,19 @@ class NewScene extends Phaser.Scene {
           image4.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Animal') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition3'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Animal': image17Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image17', 'pieceName': 'image17Name', 'x': 1780, 'y': 400 }));
 
         } else {
           alert('incorrect move')
@@ -591,8 +785,19 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Adjective') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition4'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Adjective': image19Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image19', 'pieceName': 'image19Name', 'x': 1780, 'y': 900 }));
 
         } else {
           alert('incorrect move')
@@ -611,8 +816,19 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Adjective') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition4'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Adjective': image20Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image20', 'pieceName': 'image20Name', 'x': 1780, 'y': 1150 }));
 
         } else {
           alert('incorrect move')
@@ -631,8 +847,19 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Adjective') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition4'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Adjective': image21Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image21', 'pieceName': 'image21Name', 'x': 2110, 'y': 150 }));
 
         } else {
           alert('incorrect move')
@@ -651,8 +878,19 @@ class NewScene extends Phaser.Scene {
           image5.clearTint();
           this.firstClick = false;
 
+          // ---------------------------store Matching object----------------
+          this.puzzlePieceMatch.filter((data, index) => {
+            if (Object.keys(data)[0] == 'Adjective') {
+              this.puzzlePieceMatch.splice(index, 1);
+              let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition4'));
+              eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+              eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
+            }
+          })
+
           this.puzzlePieceMatch.push({ 'Adjective': image22Name._text })
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
+          localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image22', 'pieceName': 'image22Name', 'x': 2110, 'y': 400 }));
 
         } else {
           alert('incorrect move')
@@ -841,18 +1079,55 @@ class NewScene extends Phaser.Scene {
         else {
           if (gameObject.texture.key == 'p6' || gameObject.texture.key == 'p9' || gameObject.texture.key == 'p12' || gameObject.texture.key == 'p15') {
             if (gameObject.y < 160 && gameObject.y > 140) {
-              gameObject.disableInteractive();
+              // gameObject.disableInteractive();
               gameObject.clearTint();
               gameObject.x = 411;
               gameObject.y = 150
 
-              gameObject.texture.key == 'p6' ?
-                this.puzzlePieceMatch.push({ 'Prural Noun': image6Name._text }) :
-                gameObject.texture.key == 'p9' ?
-                  this.puzzlePieceMatch.push({ 'Prural Noun': image9Name._text }) :
-                  gameObject.texture.key == 'p12' ?
-                    this.puzzlePieceMatch.push({ 'Prural Noun': image12Name._text }) :
-                    this.puzzlePieceMatch.push({ 'Prural Noun': image15Name._text })
+              // ---------------------------store Matching object----------------
+              this.puzzlePieceMatch.filter((data, index) => {
+                if (Object.keys(data)[0] == 'Prural Noun') {
+                  this.puzzlePieceMatch.splice(index, 1);
+                  let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition'));
+                  eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                  eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                }
+              })
+
+              if (gameObject.texture.key == 'p6') {
+                this.puzzlePieceMatch.push({ 'Prural Noun': image6Name._text });
+                localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image6', 'pieceName': 'image6Name', 'x': 1120, 'y': 150 }));
+                this.input.setDraggable(image6, false);
+                this.input.setDraggable(image9, true);
+                this.input.setDraggable(image12, true);
+                this.input.setDraggable(image15, true);
+              }
+              else if (gameObject.texture.key == 'p9') {
+                this.puzzlePieceMatch.push({ 'Prural Noun': image9Name._text });
+                localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image9', 'pieceName': 'image9Name', 'x': 1120, 'y': 900 }));
+                this.input.setDraggable(image6, true);
+                this.input.setDraggable(image9, false);
+                this.input.setDraggable(image12, true);
+                this.input.setDraggable(image15, true);
+              }
+
+              else if (gameObject.texture.key == 'p12') {
+                this.puzzlePieceMatch.push({ 'Prural Noun': image12Name._text });
+                localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image12', 'pieceName': 'image12Name', 'x': 1450, 'y': 400 }));
+                this.input.setDraggable(image6, true);
+                this.input.setDraggable(image9, true);
+                this.input.setDraggable(image12, false);
+                this.input.setDraggable(image15, true);
+              }
+              else {
+                this.puzzlePieceMatch.push({ 'Prural Noun': image15Name._text });
+                localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image15', 'pieceName': 'image15Name', 'x': 1450, 'y': 1150 }));
+                this.input.setDraggable(image6, true);
+                this.input.setDraggable(image9, true);
+                this.input.setDraggable(image12, true);
+                this.input.setDraggable(image15, false);
+              }
+
 
               localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
 
@@ -887,20 +1162,66 @@ class NewScene extends Phaser.Scene {
 
           if (gameObject.texture.key == 'p7' || gameObject.texture.key == 'p10' || gameObject.texture.key == 'p13' || gameObject.texture.key == 'p16' || gameObject.texture.key == 'p18') {
             if (gameObject.y < 410 && gameObject.y > 390) {
-              gameObject.disableInteractive();
+              // gameObject.disableInteractive();
               gameObject.clearTint();
               gameObject.x = 423
               gameObject.y = 400
 
-              gameObject.texture.key == 'p7' ?
-                this.puzzlePieceMatch.push({ 'Noun1': image7Name._text }) :
-                gameObject.texture.key == 'p10' ?
-                  this.puzzlePieceMatch.push({ 'Noun1': image10Name._text }) :
-                  gameObject.texture.key == 'p13' ?
-                    this.puzzlePieceMatch.push({ 'Noun1': image13Name._text }) :
-                    gameObject.texture.key == 'p16' ?
-                      this.puzzlePieceMatch.push({ 'Noun1': image16Name._text }) :
-                      this.puzzlePieceMatch.push({ 'Noun1': image18Name._text })
+              // ---------------------------store Matching object----------------
+              this.puzzlePieceMatch.filter((data, index) => {
+                if (Object.keys(data)[0] == 'Noun1') {
+                  this.puzzlePieceMatch.splice(index, 1);
+                  let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition1'));
+                  eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                  eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                }
+              })
+
+              if (gameObject.texture.key == 'p7') {
+                this.puzzlePieceMatch.push({ 'Noun1': image7Name._text });
+                localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image7', 'pieceName': 'image7Name', 'x': 1120, 'y': 400 }));
+                this.input.setDraggable(image7, false);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, true);
+              }
+              else if (gameObject.texture.key == 'p10') {
+                this.puzzlePieceMatch.push({ 'Noun1': image10Name._text });
+                localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image10', 'pieceName': 'image10Name', 'x': 1120, 'y': 1150 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, false);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, true);
+              }
+              else if (gameObject.texture.key == 'p13') {
+                this.puzzlePieceMatch.push({ 'Noun1': image13Name._text });
+                localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image13', 'pieceName': 'image13Name', 'x': 1450, 'y': 650 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, false);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, true);
+              }
+              else if (gameObject.texture.key == 'p16') {
+                this.puzzlePieceMatch.push({ 'Noun1': image16Name._text });
+                localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image16', 'pieceName': 'image16Name', 'x': 1780, 'y': 150 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, false);
+                this.input.setDraggable(image18, true);
+              }
+              else {
+                this.puzzlePieceMatch.push({ 'Noun1': image18Name._text })
+                localStorage.setItem('PiecesPosition1', JSON.stringify({ 'piece': 'image18', 'pieceName': 'image18Name', 'x': 1780, 'y': 650 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, false);
+              }
 
               localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
 
@@ -911,15 +1232,61 @@ class NewScene extends Phaser.Scene {
               gameObject.x = 423
               gameObject.y = 649
 
-              gameObject.texture.key == 'p7' ?
-                this.puzzlePieceMatch.push({ 'Noun2': image7Name._text }) :
-                gameObject.texture.key == 'p10' ?
-                  this.puzzlePieceMatch.push({ 'Noun2': image10Name._text }) :
-                  gameObject.texture.key == 'p13' ?
-                    this.puzzlePieceMatch.push({ 'Noun2': image13Name._text }) :
-                    gameObject.texture.key == 'p16' ?
-                      this.puzzlePieceMatch.push({ 'Noun2': image16Name._text }) :
-                      this.puzzlePieceMatch.push({ 'Noun2': image18Name._text })
+              // ---------------------------store Matching object----------------
+              this.puzzlePieceMatch.filter((data, index) => {
+                if (Object.keys(data)[0] == 'Noun2') {
+                  this.puzzlePieceMatch.splice(index, 1);
+                  let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition2'));
+                  eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                  eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                }
+              })
+
+              if (gameObject.texture.key == 'p7') {
+                this.puzzlePieceMatch.push({ 'Noun2': image7Name._text });
+                localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image7', 'pieceName': 'image7Name', 'x': 1120, 'y': 400 }));
+                this.input.setDraggable(image7, false);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, true);
+              }
+              else if (gameObject.texture.key == 'p10') {
+                this.puzzlePieceMatch.push({ 'Noun2': image10Name._text });
+                localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image10', 'pieceName': 'image10Name', 'x': 1120, 'y': 1150 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, false);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, true);
+              }
+              else if (gameObject.texture.key == 'p13') {
+                this.puzzlePieceMatch.push({ 'Noun2': image13Name._text });
+                localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image13', 'pieceName': 'image13Name', 'x': 1450, 'y': 650 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, false);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, true);
+              }
+              else if (gameObject.texture.key == 'p16') {
+                this.puzzlePieceMatch.push({ 'Noun2': image16Name._text });
+                localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image16', 'pieceName': 'image16Name', 'x': 1780, 'y': 150 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, false);
+                this.input.setDraggable(image18, true);
+              }
+              else {
+                this.puzzlePieceMatch.push({ 'Noun2': image18Name._text })
+                localStorage.setItem('PiecesPosition2', JSON.stringify({ 'piece': 'image18', 'pieceName': 'image18Name', 'x': 1780, 'y': 650 }));
+                this.input.setDraggable(image7, true);
+                this.input.setDraggable(image10, true);
+                this.input.setDraggable(image13, true);
+                this.input.setDraggable(image16, true);
+                this.input.setDraggable(image18, false);
+              }
 
               localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
 
@@ -960,18 +1327,54 @@ class NewScene extends Phaser.Scene {
 
           if (gameObject.texture.key == 'p8' || gameObject.texture.key == 'p11' || gameObject.texture.key == 'p14' || gameObject.texture.key == 'p17') {
             if (gameObject.y < 912 && gameObject.y > 892) {
-              gameObject.disableInteractive();
+              // gameObject.disableInteractive();
               gameObject.clearTint();
               gameObject.x = 384;
               gameObject.y = 902;
 
-              gameObject.texture.key == 'p8' ?
-                this.puzzlePieceMatch.push({ 'Animal': image8Name._text }) :
-                gameObject.texture.key == 'p11' ?
-                  this.puzzlePieceMatch.push({ 'Animal': image11Name._text }) :
-                  gameObject.texture.key == 'p14' ?
-                    this.puzzlePieceMatch.push({ 'Animal': image14Name._text }) :
-                    this.puzzlePieceMatch.push({ 'Animal': image17Name._text });
+              // ---------------------------store Matching object----------------
+              this.puzzlePieceMatch.filter((data, index) => {
+                if (Object.keys(data)[0] == 'Animal') {
+                  this.puzzlePieceMatch.splice(index, 1);
+                  let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition3'));
+                  eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                  eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                }
+              })
+
+              if (gameObject.texture.key == 'p8') {
+                this.puzzlePieceMatch.push({ 'Animal': image8Name._text });
+                localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image8', 'pieceName': 'image8Name', 'x': 1120, 'y': 650 }));
+                this.input.setDraggable(image8, false);
+                this.input.setDraggable(image11, true);
+                this.input.setDraggable(image14, true);
+                this.input.setDraggable(image17, true);
+              }
+              else if (gameObject.texture.key == 'p11') {
+                this.puzzlePieceMatch.push({ 'Animal': image11Name._text });
+                localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image11', 'pieceName': 'image11Name', 'x': 1450, 'y': 150 }));
+                this.input.setDraggable(image8, true);
+                this.input.setDraggable(image11, false);
+                this.input.setDraggable(image14, true);
+                this.input.setDraggable(image17, true);
+              }
+              else if (gameObject.texture.key == 'p14') {
+                this.puzzlePieceMatch.push({ 'Animal': image14Name._text });
+                localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image14', 'pieceName': 'image14Name', 'x': 1450, 'y': 900 }));
+                this.input.setDraggable(image8, true);
+                this.input.setDraggable(image11, true);
+                this.input.setDraggable(image14, false);
+                this.input.setDraggable(image17, true);
+              }
+              else {
+                this.puzzlePieceMatch.push({ 'Animal': image17Name._text });
+                localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image17', 'pieceName': 'image17Name', 'x': 1780, 'y': 400 }));
+                this.input.setDraggable(image8, true);
+                this.input.setDraggable(image11, true);
+                this.input.setDraggable(image14, true);
+                this.input.setDraggable(image17, false);
+              }
+
 
               localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
             }
@@ -1004,18 +1407,53 @@ class NewScene extends Phaser.Scene {
 
           if (gameObject.texture.key == 'p19' || gameObject.texture.key == 'p20' || gameObject.texture.key == 'p21' || gameObject.texture.key == 'p22') {
             if (gameObject.y < 1162 && gameObject.y > 1142) {
-              gameObject.disableInteractive();
+              // gameObject.disableInteractive();
               gameObject.clearTint();
               gameObject.x = 408;
               gameObject.y = 1152
 
-              gameObject.texture.key == 'p19' ?
-                this.puzzlePieceMatch.push({ 'Adjective': image19Name._text }) :
-                gameObject.texture.key == 'p20' ?
-                  this.puzzlePieceMatch.push({ 'Adjective': image20Name._text }) :
-                  gameObject.texture.key == 'p21' ?
-                    this.puzzlePieceMatch.push({ 'Adjective': image21Name._text }) :
-                    this.puzzlePieceMatch.push({ 'Adjective': image22Name._text });
+              // ---------------------------store Matching object----------------
+              this.puzzlePieceMatch.filter((data, index) => {
+                if (Object.keys(data)[0] == 'Adjective') {
+                  this.puzzlePieceMatch.splice(index, 1);
+                  let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition4'));
+                  eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                  eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y']);
+                }
+              })
+
+              if (gameObject.texture.key == 'p19') {
+                this.puzzlePieceMatch.push({ 'Adjective': image19Name._text });
+                localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image19', 'pieceName': 'image19Name', 'x': 1780, 'y': 900 }));
+                this.input.setDraggable(image19, false);
+                this.input.setDraggable(image20, true);
+                this.input.setDraggable(image21, true);
+                this.input.setDraggable(image22, true);
+              }
+              else if (gameObject.texture.key == 'p20') {
+                this.puzzlePieceMatch.push({ 'Adjective': image20Name._text });
+                localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image20', 'pieceName': 'image20Name', 'x': 1780, 'y': 1150 }));
+                this.input.setDraggable(image19, true);
+                this.input.setDraggable(image20, false);
+                this.input.setDraggable(image21, true);
+                this.input.setDraggable(image22, true);
+              }
+              else if (gameObject.texture.key == 'p21') {
+                this.puzzlePieceMatch.push({ 'Adjective': image21Name._text });
+                localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image21', 'pieceName': 'image21Name', 'x': 2110, 'y': 150 }));
+                this.input.setDraggable(image19, true);
+                this.input.setDraggable(image20, true);
+                this.input.setDraggable(image21, false);
+                this.input.setDraggable(image22, true);
+              }
+              else {
+                this.puzzlePieceMatch.push({ 'Adjective': image22Name._text });
+                localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image22', 'pieceName': 'image22Name', 'x': 2110, 'y': 400 }));
+                this.input.setDraggable(image19, true);
+                this.input.setDraggable(image20, true);
+                this.input.setDraggable(image21, true);
+                this.input.setDraggable(image22, false);
+              }
 
               localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
 
@@ -1160,8 +1598,7 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.removeItem('Match');
-    localStorage.removeItem('popupClose');
+    localStorage.clear()
     this.phaserGame = new Phaser.Game(this.config);
   }
 
@@ -1183,7 +1620,7 @@ export class GameComponent implements OnInit {
     localStorage.removeItem('popupClose')
     this.modalService.open(content, { size: 'xl' }).result.then((result) => {
     }, (reason) => {
-      localStorage.setItem('popupClose',JSON.stringify(true))
+      localStorage.setItem('popupClose', JSON.stringify(true))
     });
   }
 
