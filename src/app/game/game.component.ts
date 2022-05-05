@@ -20,8 +20,8 @@ class NewScene extends Phaser.Scene {
 
   story1: any = [{
     'Prural Noun': ['Dolls', 'Bread', 'Globes', 'Books'],
-    'Noun1': ['Orage', 'Shell', 'Box', 'Shoe', 'String'],
-    'Noun2': ['Orage', 'Shell', 'Box', 'Shoe', 'String'],
+    'Noun1': ['Orange', 'Shell', 'Box', 'Shoe', 'String'],
+    'Noun2': ['Orange', 'Shell', 'Box', 'Shoe', 'String'],
     'Animal': ['Mouse', 'Kitten(Lost Pet)', 'Hedgehog', 'Bee'],
     'Adjective': ['Huge', 'Purple', 'Tired', 'Loud']
   }]
