@@ -4,16 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Phaser from 'phaser';
 
 class NewScene extends Phaser.Scene {
-  green: any;
-  blue: any;
-  greenKeys: any;
-  blueKeys: any;
-  demo: any;
-  hueso: any;
-  huesoCopy: any;
-  flecha: any;
-  result: any;
-  debug: any;
   clickMatchObject: object = { "key": '', "match": '' };
   firstClick: boolean = false;
   puzzlePieceMatch: object[] = [];
@@ -86,7 +76,6 @@ class NewScene extends Phaser.Scene {
           this.load.image('p21', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
           this.load.image('p22', 'assets/images/puzzle_pieces/ctc_mablib_puzzle_b2.svg');
         }
-        console.log(index, index1)
       })
     })
 
@@ -96,6 +85,24 @@ class NewScene extends Phaser.Scene {
 
 
   create() {
+    let image6Name;
+    let image7Name;
+    let image8Name;
+    let image9Name;
+    let image10Name;
+    let image11Name;
+    let image12Name;
+    let image13Name;
+    let image14Name;
+    let image15Name;
+    let image16Name;
+    let image17Name;
+    let image18Name;
+    let image19Name;
+    let image20Name;
+    let image21Name;
+    let image22Name;
+
     this.background = this.add.image(0, 0, "background")
       .setOrigin(0, 0);
     // Based on your game size, it may "stretch" and distort.
@@ -149,24 +156,6 @@ class NewScene extends Phaser.Scene {
         let image5Name = this.add.text(200, 1150, data, { font: '25px Arial', align: 'center', color: 'white' }).setOrigin(0.4, 0.4);
       }
     })
-
-    let image6Name;
-    let image7Name;
-    let image8Name;
-    let image9Name;
-    let image10Name;
-    let image11Name;
-    let image12Name;
-    let image13Name;
-    let image14Name;
-    let image15Name;
-    let image16Name;
-    let image17Name;
-    let image18Name;
-    let image19Name;
-    let image20Name;
-    let image21Name;
-    let image22Name;
 
     story1.forEach((data, index) => {
       this.story1[0][data].forEach((data1, index1) => {
@@ -236,26 +225,27 @@ class NewScene extends Phaser.Scene {
       })
     })
 
-    // input for drag item
-    this.input.setDraggable(image6);
-    this.input.setDraggable(image7);
-    this.input.setDraggable(image8);
-    this.input.setDraggable(image9);
-    this.input.setDraggable(image10);
-    this.input.setDraggable(image11);
-    this.input.setDraggable(image12);
-    this.input.setDraggable(image13);
-    this.input.setDraggable(image14);
-    this.input.setDraggable(image15);
-    this.input.setDraggable(image16);
-    this.input.setDraggable(image17);
-    this.input.setDraggable(image18);
-    this.input.setDraggable(image19);
-    this.input.setDraggable(image20);
-    this.input.setDraggable(image21);
-    this.input.setDraggable(image22);
-    // this.input.se
-
+    const dragFunction = () => {
+      // input for drag item
+      this.input.setDraggable(image6);
+      this.input.setDraggable(image7);
+      this.input.setDraggable(image8);
+      this.input.setDraggable(image9);
+      this.input.setDraggable(image10);
+      this.input.setDraggable(image11);
+      this.input.setDraggable(image12);
+      this.input.setDraggable(image13);
+      this.input.setDraggable(image14);
+      this.input.setDraggable(image15);
+      this.input.setDraggable(image16);
+      this.input.setDraggable(image17);
+      this.input.setDraggable(image18);
+      this.input.setDraggable(image19);
+      this.input.setDraggable(image20);
+      this.input.setDraggable(image21);
+      this.input.setDraggable(image22);
+    }
+    dragFunction();
     // compare matching object by click
     image1.on('pointerup', () => {
       this.firstClick = true;
@@ -294,6 +284,7 @@ class NewScene extends Phaser.Scene {
         if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p6') {
           image6.setPosition(411, 150)
           image6Name.setPosition(411, 150)
+          dragFunction();
           this.input.setDraggable(image6, false);
           image6.clearTint();
           image1.clearTint();
@@ -304,7 +295,6 @@ class NewScene extends Phaser.Scene {
             if (Object.keys(data)[0] == 'Prural Noun') {
               this.puzzlePieceMatch.splice(index, 1);
               let PiecesPosition = JSON.parse(localStorage.getItem('PiecesPosition'));
-              console.log(eval(PiecesPosition['piece']))
               eval(PiecesPosition['piece']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
               eval(PiecesPosition['pieceName']).setPosition(PiecesPosition['x'], PiecesPosition['y'])
             }
@@ -327,7 +317,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p9') {
           image9.setPosition(411, 150)
-          image9Name.setPosition(411, 150)
+          image9Name.setPosition(411, 150);
+          dragFunction();
           this.input.setDraggable(image9, false);
           image9.clearTint();
           image1.clearTint();
@@ -360,7 +351,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p12') {
           image12.setPosition(411, 150)
-          image12Name.setPosition(411, 150)
+          image12Name.setPosition(411, 150);
+          dragFunction();
           this.input.setDraggable(image12, false);
           image12.clearTint();
           image1.clearTint();
@@ -393,7 +385,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p1' && this.clickMatchObject['match'] == 'p15') {
           image15.setPosition(411, 150)
-          image15Name.setPosition(411, 150)
+          image15Name.setPosition(411, 150);
+          dragFunction();
           this.input.setDraggable(image15, false);
           image15.clearTint();
           image1.clearTint();
@@ -427,6 +420,7 @@ class NewScene extends Phaser.Scene {
         if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p7') {
           this.clickMatchObject['key'] === 'p2' ? image7.setPosition(423, 400) : image7.setPosition(423, 649);
           this.clickMatchObject['key'] === 'p2' ? image7Name.setPosition(423, 400) : image7Name.setPosition(423, 649)
+          dragFunction();
           this.input.setDraggable(image7, false);
           image7.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
@@ -471,7 +465,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p10') {
           this.clickMatchObject['key'] === 'p2' ? image10.setPosition(423, 400) : image10.setPosition(423, 649);
-          this.clickMatchObject['key'] === 'p2' ? image10Name.setPosition(423, 400) : image10Name.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image10Name.setPosition(423, 400) : image10Name.setPosition(423, 649);
+          dragFunction();
           this.input.setDraggable(image10, false);
           image10.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
@@ -517,7 +512,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p13') {
           this.clickMatchObject['key'] === 'p2' ? image13.setPosition(423, 400) : image13.setPosition(423, 649)
-          this.clickMatchObject['key'] === 'p2' ? image13Name.setPosition(423, 400) : image13Name.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image13Name.setPosition(423, 400) : image13Name.setPosition(423, 649);
+          dragFunction();
           this.input.setDraggable(image13, false);
           image13.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
@@ -563,7 +559,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p16') {
           this.clickMatchObject['key'] === 'p2' ? image16.setPosition(423, 400) : image16.setPosition(423, 649)
-          this.clickMatchObject['key'] === 'p2' ? image16Name.setPosition(423, 400) : image16Name.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image16Name.setPosition(423, 400) : image16Name.setPosition(423, 649);
+          dragFunction();
           this.input.setDraggable(image16, false);
           image16.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
@@ -609,7 +606,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if ((this.clickMatchObject['key'] === 'p2' || this.clickMatchObject['key'] === 'p3') && this.clickMatchObject['match'] == 'p18') {
           this.clickMatchObject['key'] === 'p2' ? image18.setPosition(423, 400) : image18.setPosition(423, 649)
-          this.clickMatchObject['key'] === 'p2' ? image18Name.setPosition(423, 400) : image18Name.setPosition(423, 649)
+          this.clickMatchObject['key'] === 'p2' ? image18Name.setPosition(423, 400) : image18Name.setPosition(423, 649);
+          dragFunction();
           this.input.setDraggable(image18, false);
           image18.clearTint();
           this.clickMatchObject['key'] === 'p2' ? image2.clearTint() : image3.clearTint();
@@ -655,7 +653,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p8') {
           image8.setPosition(384, 902)
-          image8Name.setPosition(384, 902)
+          image8Name.setPosition(384, 902);
+          dragFunction();
           this.input.setDraggable(image8, false);
           image8.clearTint();
           image4.clearTint();
@@ -686,7 +685,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p11') {
           image11.setPosition(384, 902)
-          image11Name.setPosition(384, 902)
+          image11Name.setPosition(384, 902);
+          dragFunction();
           this.input.setDraggable(image11, false);
           image11.clearTint();
           image4.clearTint();
@@ -717,7 +717,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p14') {
           image14.setPosition(384, 902)
-          image14Name.setPosition(384, 902)
+          image14Name.setPosition(384, 902);
+          dragFunction();
           this.input.setDraggable(image14, false);
           image14.clearTint();
           image4.clearTint();
@@ -748,7 +749,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p4' && this.clickMatchObject['match'] == 'p17') {
           image17.setPosition(384, 902)
-          image17Name.setPosition(384, 902)
+          image17Name.setPosition(384, 902);
+          dragFunction();
           this.input.setDraggable(image17, false);
           image17.clearTint();
           image4.clearTint();
@@ -779,7 +781,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p19') {
           image19.setPosition(408, 1152)
-          image19Name.setPosition(408, 1152)
+          image19Name.setPosition(408, 1152);
+          dragFunction();
           this.input.setDraggable(image19, false);
           image19.clearTint();
           image5.clearTint();
@@ -810,7 +813,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p20') {
           image20.setPosition(408, 1152)
-          image20Name.setPosition(408, 1152)
+          image20Name.setPosition(408, 1152);
+          dragFunction();
           this.input.setDraggable(image20, false);
           image20.clearTint();
           image5.clearTint();
@@ -841,7 +845,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p21') {
           image21.setPosition(408, 1152)
-          image21Name.setPosition(408, 1152)
+          image21Name.setPosition(408, 1152);
+          dragFunction();
           this.input.setDraggable(image21, false);
           image21.clearTint();
           image5.clearTint();
@@ -872,7 +877,8 @@ class NewScene extends Phaser.Scene {
       if (this.firstClick) {
         if (this.clickMatchObject['key'] === 'p5' && this.clickMatchObject['match'] == 'p22') {
           image22.setPosition(408, 1152)
-          image22Name.setPosition(408, 1152)
+          image22Name.setPosition(408, 1152);
+          dragFunction();
           this.input.setDraggable(image22, false);
           image22.clearTint();
           image5.clearTint();
@@ -903,13 +909,11 @@ class NewScene extends Phaser.Scene {
     this.input.dragDistanceThreshold = 16;
 
     this.input.on('dragstart', function (pointer, gameObject) {
-      // console.log(pointer, gameObject)
       gameObject.setTint(0xff0000);
 
     });
 
     this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-      // console.log(dragX, dragY)
       gameObject.x = dragX;
       gameObject.y = dragY;
 
@@ -984,9 +988,6 @@ class NewScene extends Phaser.Scene {
     });
 
     this.input.on('dragend', (pointer, gameObject) => {
-      console.log(pointer, gameObject);
-      console.log(gameObject.texture.key, '--', gameObject.x, gameObject.y)
-
       if (this.firstClick == false && JSON.parse(localStorage.getItem('popupClose'))) {
         if (gameObject.x > 430) {
           alert('incorrect move')
@@ -1486,84 +1487,8 @@ class NewScene extends Phaser.Scene {
 
         }
       }
-      // if(gameObject.x>250)
-      // alert('incorrect move')
-      // else
-      // gameObject.disableInteractive()
-      // // this.input.setDraggable(image6, false);
-      //         gameObject.clearTint();
-
     });
   }
-
-
-
-  //  create() {
-
-  //     this.add.sprite(0, 0, 'grid');
-
-  //     let group = this.add.group();
-  // // @ts-ignore
-  //     group.inputEnableChildren = true;
-
-  //     let atari = group.create(32, 100, 'atari');
-
-
-
-
-  //     atari.inputEnabled = true;
-  //   //  atari.input.enableDrag();
-  //     atari.events.onDragStart.add(this.onDragStart, this);
-  //     atari.events.onDragStop.add(this.onDragStop, this);
-
-  //     let sonic = group.create(300, 200, 'sonic');
-
-  //     sonic.inputEnabled = true;
-  //     //sonic.input.enableDrag();
-  //     sonic.events.onDragStart.add(this.onDragStart, this);
-  //     sonic.events.onDragStop.add(this.onDragStop, this);
-  // // @ts-ignore
-  //     group.onChildInputDown.add(this.onDown, this);
-
-  // }
-
-  //  onDown(sprite, pointer) {
-
-  //     this.result = "Down " + sprite.key;
-
-
-  //     console.log('down', sprite.key);
-
-  // }
-
-  //  onDragStart(sprite, pointer) {
-
-  //     this.result = "Dragging " + sprite.key;
-
-  // }
-
-  //  onDragStop(sprite, pointer) {
-
-  //     this.result = sprite.key + " dropped at x:" + pointer.x + " y: " + pointer.y;
-
-  //     if (pointer.y > 400)
-  //     {
-  //         console.log('input disabled on', sprite.key);
-  //         sprite.input.enabled = false;
-
-  //         sprite.sendToBack();
-  //     }
-
-  // }
-
-  //  render() {
-
-  //     this.debug.text(this.result, 10, 20);
-
-  // }
-
-
-
 }
 
 @Component({
