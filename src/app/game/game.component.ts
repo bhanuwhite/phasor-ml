@@ -909,8 +909,9 @@ class NewScene extends Phaser.Scene {
     this.input.dragDistanceThreshold = 16;
 
     this.input.on('dragstart', function (pointer, gameObject) {
-      gameObject.setTint(0xff0000);
-
+      if (JSON.parse(localStorage.getItem('popupClose'))) {
+        gameObject.setTint(0xff0000);
+      }
     });
 
     this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
