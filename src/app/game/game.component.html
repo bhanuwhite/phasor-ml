@@ -47,4 +47,14 @@
 </ng-template>
 
 <!-- Notification Alert Message -->
-<app-alter-message [(staticAlertClosed)]="variable" message="Incorrect Move"></app-alter-message>
+<ng-template #alertpopup let-modal>
+    <div class="modal-body">
+        <div class="w3-panel w3-red">
+            <h2 class="alerttitle">Warning!</h2>
+            <h4 class="alerttitle">Incorrect Move.</h4>
+        </div>
+    </div>
+    <div class="game-btn">
+        <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">close</button>
+    </div>
+</ng-template>

@@ -9,8 +9,8 @@ import { MadlibsComponent } from './madlibs/madlibs.component';
 import { StoriesComponent } from './stories/stories.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AlterMessageComponent } from './alter-message/alter-message.component';
 import { RevealstoryComponent } from './revealstory/revealstory.component';
+import { StickerbookComponent } from './stickerbook/stickerbook.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { RevealstoryComponent } from './revealstory/revealstory.component';
     DashboardComponent,
     MadlibsComponent,
     StoriesComponent,
-    AlterMessageComponent,
-    RevealstoryComponent
+    RevealstoryComponent,
+    StickerbookComponent
   ],
   imports: [
     BrowserModule,

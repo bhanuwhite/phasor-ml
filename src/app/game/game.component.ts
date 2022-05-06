@@ -7,6 +7,7 @@ class NewScene extends Phaser.Scene {
   clickMatchObject: object = { "key": '', "match": '' };
   firstClick: boolean = false;
   puzzlePieceMatch: object[] = [];
+  parentContext: any;
 
   story1: any = [{
     'Prural Noun': ['Dolls', 'Bread', 'Globes', 'Books'],
@@ -18,8 +19,16 @@ class NewScene extends Phaser.Scene {
 
   private background: Phaser.GameObjects.Image;
 
-  constructor() {
+  constructor(context) {
     super({ key: 'new' });
+    this.parentContext = context;
+  }
+
+  popOpen() {
+    this.parentContext.modalService.open(this.parentContext.alertpopup).result.then((result) => {
+    }, (reason) => {
+      localStorage.setItem('popupClose', JSON.stringify(true))
+    });
   }
 
   preload() {
@@ -307,7 +316,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image6', 'pieceName': 'image6Name', 'x': 1120, 'y': 150 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image6.clearTint();
         }
       }
     })
@@ -341,7 +351,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image9', 'pieceName': 'image9Name', 'x': 1120, 'y': 900 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image9.clearTint();
         }
       }
     })
@@ -375,7 +386,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image12', 'pieceName': 'image12Name', 'x': 1450, 'y': 400 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image12.clearTint();
         }
       }
     })
@@ -409,7 +421,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition', JSON.stringify({ 'piece': 'image15', 'pieceName': 'image15Name', 'x': 1450, 'y': 1150 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image15.clearTint();
         }
       }
     })
@@ -455,7 +468,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image7.clearTint();
         }
       }
     })
@@ -502,7 +516,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image10.clearTint();
         }
       }
     })
@@ -549,7 +564,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image13.clearTint();
         }
       }
     })
@@ -596,7 +612,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image16.clearTint();
         }
       }
     })
@@ -643,7 +660,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image18.clearTint();
         }
       }
     })
@@ -675,7 +693,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image8', 'pieceName': 'image8Name', 'x': 1120, 'y': 650 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image8.clearTint();
         }
       }
     })
@@ -707,7 +726,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image11', 'pieceName': 'image11Name', 'x': 1450, 'y': 150 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image11.clearTint();
         }
       }
     })
@@ -739,7 +759,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image14', 'pieceName': 'image14Name', 'x': 1450, 'y': 900 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image14.clearTint();
         }
       }
     })
@@ -771,7 +792,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition3', JSON.stringify({ 'piece': 'image17', 'pieceName': 'image17Name', 'x': 1780, 'y': 400 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image17.clearTint();
         }
       }
     })
@@ -803,7 +825,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image19', 'pieceName': 'image19Name', 'x': 1780, 'y': 900 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image19.clearTint();
         }
       }
     })
@@ -835,7 +858,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image20', 'pieceName': 'image20Name', 'x': 1780, 'y': 1150 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image20.clearTint();
         }
       }
     })
@@ -867,7 +891,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image21', 'pieceName': 'image21Name', 'x': 2110, 'y': 150 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image21.clearTint();
         }
       }
     })
@@ -899,7 +924,8 @@ class NewScene extends Phaser.Scene {
           localStorage.setItem('PiecesPosition4', JSON.stringify({ 'piece': 'image22', 'pieceName': 'image22Name', 'x': 2110, 'y': 400 }));
 
         } else {
-          alert('incorrect move')
+          this.popOpen();
+          image22.clearTint();
         }
       }
     })
@@ -991,7 +1017,7 @@ class NewScene extends Phaser.Scene {
     this.input.on('dragend', (pointer, gameObject) => {
       if (this.firstClick == false && JSON.parse(localStorage.getItem('popupClose'))) {
         if (gameObject.x > 430) {
-          alert('incorrect move')
+          this.popOpen();
           if (gameObject.texture.key == 'p6') {
             image6.setPosition(1120, 150)
             image6Name.setPosition(1120, 150);
@@ -1135,7 +1161,7 @@ class NewScene extends Phaser.Scene {
 
             }
             else {
-              alert('incorrect move')
+              this.popOpen();
               if (gameObject.texture.key == 'p6') {
                 image6.setPosition(1120, 150)
                 image6Name.setPosition(1120, 150);
@@ -1294,7 +1320,7 @@ class NewScene extends Phaser.Scene {
 
             }
             else {
-              alert('incorrect move')
+              this.popOpen();
               if (gameObject.texture.key == 'p7') {
                 image7.setPosition(1120, 400)
                 image7Name.setPosition(1120, 400);
@@ -1381,7 +1407,7 @@ class NewScene extends Phaser.Scene {
               localStorage.setItem('Match', JSON.stringify(this.puzzlePieceMatch))
             }
             else {
-              alert('incorrect move')
+              this.popOpen();
               if (gameObject.texture.key == 'p8') {
                 image8.setPosition(1120, 650)
                 image8Name.setPosition(1120, 650);
@@ -1461,7 +1487,7 @@ class NewScene extends Phaser.Scene {
 
             }
             else {
-              alert('incorrect move');
+              this.popOpen();
               if (gameObject.texture.key == 'p19') {
                 image19.setPosition(1780, 900)
                 image19Name.setPosition(1780, 900);
@@ -1502,11 +1528,12 @@ export class GameComponent implements OnInit {
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
   @ViewChild('content') content;
+  @ViewChild('alertpopup') alertpopup;
 
   constructor(private router: Router, private modalService: NgbModal) {
     this.config = {
       type: Phaser.AUTO,
-      scene: [NewScene],
+      scene: new NewScene(this),
       backgroundColor: '#FFFFFF',
       scale: {
         mode: Phaser.Scale.FIT,

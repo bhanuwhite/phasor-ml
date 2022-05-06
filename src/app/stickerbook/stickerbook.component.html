@@ -1,0 +1,171 @@
+<div class="main-content-sec">
+    <div class="left-side-sec">
+        <ul>
+            <li [routerLink]="['/games']">
+                <div><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <div class="icon-text">Back</div>
+            </li>
+            <li (click)="open(content)">
+                <div><i class="fa fa-question" aria-hidden="true"></i></div>
+                <div class="icon-text">Instructions</div>
+            </li>
+        </ul>
+    </div>
+    <div class="right-side-sec">
+        <div>
+            <div class="down-btn">
+                <button class="btn"><i class="fa fa-caret-down"></i></button>
+            </div>
+            <div class="card sticker-custm-card">
+                <div class="sticker-book">
+                    <div class="sticker-header">
+                        <h5>Sticker Book</h5>
+                        <div class="sticker-animal">
+                            <div><i class="fa fa-wechat"></i></div>
+                            <div>Animals</div>
+                        </div>
+                        <div class="sticker-animal">
+                            <div><i class="fa fa-wechat"></i></div>
+                            <div>Speech bubbles</div>
+                        </div>
+                        <div class="sticker-animal">
+                            <div><i class="fa fa-wechat"></i></div>
+                            <div>Catergory</div>
+                        </div>
+                        <div class="sticker-animal">
+                            <div><i class="fa fa-wechat"></i></div>
+                            <div>Catergory</div>
+                        </div>
+                        <div class="sticker-animal">
+                            <div><i class="fa fa-wechat"></i></div>
+                            <div>Catergory</div>
+                        </div>
+                    </div>
+                    <div class="label-card-section">
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                    </div>
+                    <div class="label-card-section">
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                    </div>
+                    <div class="label-card-section">
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                        <div>
+                            <div class="label-card"></div>
+                            <p>Label</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popup Modal For Instruction -->
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <h1 style="display: flex;justify-content: center;padding-top: 70px;">Madlib Tutorial</h1>
+        <br>
+        <div style="text-align: center;width: 65%;margin: auto;font-size:20px">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Vivamus hendrerit enim ut purus
+            posuere, sit amet
+            accumsan orci tristique. Duis ac egestas nunc. Aenean sollicitudin elementum consequat. Etiam vel nunc
+            velit. Integer sit amet sapien sed est vehicula tincidunt vitae aliquet lectus.</div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="game-btn">
+        <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">Next</button>
+    </div>
+</ng-template>

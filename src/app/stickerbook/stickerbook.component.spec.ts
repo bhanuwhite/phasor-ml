@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlterMessageComponent } from './alter-message.component';
+import { StickerbookComponent } from './stickerbook.component';
 
-describe('AlterMessageComponent', () => {
-  let component: AlterMessageComponent;
-  let fixture: ComponentFixture<AlterMessageComponent>;
+describe('StickerbookComponent', () => {
+  let component: StickerbookComponent;
+  let fixture: ComponentFixture<StickerbookComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlterMessageComponent ]
+      declarations: [ StickerbookComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AlterMessageComponent);
+    fixture = TestBed.createComponent(StickerbookComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
