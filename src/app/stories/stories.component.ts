@@ -11,7 +11,7 @@ export class StoriesComponent implements OnInit {
 
   // gardenStory: string[] = []
   // showGardenStory: string[] = []
-  i: number = 1;
+  // i: number = 1;
   // str: string = '';
   matchObj: object = {}
 
@@ -31,10 +31,10 @@ export class StoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.nextFunction();
+    // this.nextFunction();
   }
 
-  nextFunction() {
+  // nextFunction() {
     // let storyPart = this.gardenStory[this.i]
     // if (storyPart != undefined) {
     //   this.str = this.str + storyPart
@@ -44,20 +44,20 @@ export class StoriesComponent implements OnInit {
     // this.i++
     // console.log(this.showGardenStory)
 
-    if (this.i == 1) {
-      document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
-    }
-    else if (this.i == 2) {
-      document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
-    }
-    else if (this.i == 3) {
-      document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
-    }
-    else if (this.i == 4) {
-      document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
-    }
-    this.i++
-  }
+  //   if (this.i == 1) {
+  //     document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
+  //   }
+  //   else if (this.i == 2) {
+  //     document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
+  //   }
+  //   else if (this.i == 3) {
+  //     document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
+  //   }
+  //   else if (this.i == 4) {
+  //     document.getElementById(`storyPhase${this.i}`).style.display = 'contents'
+  //   }
+  //   this.i++
+  // }
 
   open(content) {
     this.modalService.open(content, { size: 'xl' }).result.then((result) => {
