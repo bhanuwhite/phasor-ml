@@ -1,6 +1,8 @@
 .main-content-sec {
     display: flex;
     height: 100vh;
+    background-image: url("/assets/images/bg-madlib1.png");
+    background-repeat:no-repeat;
 }
 
 .left-side-sec {
@@ -84,18 +86,6 @@ ul li i:hover {
 
 }
 
-.title {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
 .game-btn {
     display: flex;
     justify-content: center;
@@ -153,39 +143,28 @@ ul li i:hover {
     padding: 12px;
     overflow: auto;
     margin-top: 2%;
+    margin-bottom: 50px;
 }
 
 .square {
-    height: 150px;
-    width: 150px;
-    background-color: #555;
     position: absolute;
     right: 15%;
   }
 
   .square1 {
-    height: 150px;
-    width: 150px;
-    background-color: #555;
     position: absolute;
-    right: 15%;
-    top:21pc
+    right: 20%;
+    top:26pc
   }
 
   .square2 {
-    height: 150px;
-    width: 150px;
-    background-color: #555;
     position: absolute;
-    left: 20%;
+    left: 15%;
     top:21pc
   }
 
   .square3 {
-    height: 150px;
-    width: 150px;
-    background-color: #555;
     position: absolute;
-    left: 40%;
-    top:21pc
+    left:35%;
+    top:25pc
   }
