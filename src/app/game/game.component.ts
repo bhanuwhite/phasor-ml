@@ -1533,12 +1533,17 @@ export class GameComponent implements OnInit {
   }
 
   doneFunction() {
-    let story = localStorage.getItem('Match');
-    if (story) {
+    let matchObj = {}
+    let Match = JSON.parse(localStorage.getItem('Match'));
+    Match.map((data) => {
+      matchObj[Object.keys(data)[0]] = data[Object.keys(data)[0]]
+    })
+    let objectKeys = Object.keys(matchObj)
+    if (objectKeys.includes('Prural Noun') && objectKeys.includes('Noun1') && objectKeys.includes('Noun2') && objectKeys.includes('Animal') && objectKeys.includes('Adjective')) {
       this.router.navigate(['/madlibs/stories']);
     }
     else {
-      alert('To Reveal Story First Match The Puzzles')
+      alert('To Reveal Story First Match All The Puzzles')
     }
   }
 
