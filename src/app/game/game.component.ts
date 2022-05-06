@@ -2,14 +2,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Phaser from 'phaser';
+import { Story } from '../game-interface/madlib';
+import { clickMatch } from '../game-interface/madlib';
 
 class NewScene extends Phaser.Scene {
-  clickMatchObject: object = { "key": '', "match": '' };
+  clickMatchObject: clickMatch = { "key": '', "match": '' };
   firstClick: boolean = false;
   puzzlePieceMatch: object[] = [];
   parentContext: any;
-
-  story1: any = [{
+  story1: Story[] = [{
     'Prural Noun': ['Dolls', 'Bread', 'Globes', 'Books'],
     'Noun1': ['Orange', 'Shell', 'Box', 'Shoe', 'String'],
     'Noun2': ['Orange', 'Shell', 'Box', 'Shoe', 'String'],
@@ -1524,7 +1525,7 @@ class NewScene extends Phaser.Scene {
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  variable = true
+  variable: boolean = true
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
   @ViewChild('content') content;
