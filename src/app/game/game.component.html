@@ -29,18 +29,14 @@
 
 <ng-template #content let-modal>
     <div class="modal-body">
-        <h1 style="display: flex;justify-content: center;padding-top: 70px;">Madlib Tutorial</h1>
+        <h1  class="madlib-heading">Madlib Tutorial</h1>
         <br>
-        <div style="text-align: center;width: 65%;margin: auto;font-size:20px">Lorem ipsum dolor sit amet, consectetur
+        <div class="madlib-content">Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus hendrerit enim ut purus
             posuere, sit amet
             accumsan orci tristique. Duis ac egestas nunc. Aenean sollicitudin elementum consequat. Etiam vel nunc
             velit. Integer sit amet sapien sed est vehicula tincidunt vitae aliquet lectus.</div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="game-btn">
         <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">Next</button>
     </div>

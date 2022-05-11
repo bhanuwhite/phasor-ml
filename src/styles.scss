@@ -3,13 +3,27 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 .title {
-  font-size: 55px;
+  font-size: 40px;
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+.modal-body {
+  .madlib-heading {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    line-height: 1.8;
+  }
+  .madlib-content {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-size:18px;
+    line-height: 2;
+  }
 }
