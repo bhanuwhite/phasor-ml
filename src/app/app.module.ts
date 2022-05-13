@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RevealstoryComponent } from './revealstory/revealstory.component';
 import { StickerbookComponent } from './stickerbook/stickerbook.component';
+import { TrainScrollerGameComponent } from './train-scroller-game/train-scroller-game.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StickerbookComponent } from './stickerbook/stickerbook.component';
     MadlibsComponent,
     StoriesComponent,
     RevealstoryComponent,
-    StickerbookComponent
+    StickerbookComponent,
+    TrainScrollerGameComponent
   ],
   imports: [
     BrowserModule,
