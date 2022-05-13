@@ -1,2 +1,40 @@
-<div id="gameContainer">
+<div class="main-content-sec">
+    <div class="left-side-sec">
+        <ul>
+            <li [routerLink]="['/games']">
+                <div><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <div class="icon-text">Back</div>
+            </li>
+            <li (click)="open(content)">
+                <div><i class="fa fa-question" aria-hidden="true"></i></div>
+                <div class="icon-text">Instructions</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="right-side-sec">
+
+        <div id="gameContainer">
+        </div>
+
+    </div>
 </div>
+
+<!-- Popup Modal For Instruction -->
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <h1  class="madlib-heading">TRAIN GAME</h1>
+        <br>
+        <div class="madlib-content">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Vivamus hendrerit enim ut purus
+            posuere, sit amet
+            accumsan orci tristique. Duis ac egestas nunc. Aenean sollicitudin elementum consequat. Etiam vel nunc
+            velit. Integer sit amet sapien sed est vehicula tincidunt vitae aliquet lectus.</div>
+    </div>
+    <div class="game-btn modal-popup-btn">
+        <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">Next</button>
+    </div>
+</ng-template>
+
+<!-- Notification Alert Message -->

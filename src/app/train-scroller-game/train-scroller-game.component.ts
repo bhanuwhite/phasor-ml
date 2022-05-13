@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Phaser from 'phaser';
 
 class NewScene extends Phaser.Scene {
@@ -168,8 +169,9 @@ export class TrainScrollerGameComponent implements OnInit {
 
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
+  @ViewChild('content') content;
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
     this.config = {
       type: Phaser.AUTO,
       scene: new NewScene(this),
@@ -189,8 +191,20 @@ export class TrainScrollerGameComponent implements OnInit {
     };
   }
 
+  ngAfterViewInit() {
+    this.open(this.content);
+  }
+
   ngOnInit(): void {
     this.phaserGame = new Phaser.Game(this.config);
+  }
+
+  open(content) {
+    localStorage.removeItem('popupClose')
+    this.modalService.open(content, { size: 'xl' }).result.then((result) => {
+    }, (reason) => {
+      localStorage.setItem('popupClose', JSON.stringify(true))
+    });
   }
 
 }
