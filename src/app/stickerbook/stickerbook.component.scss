@@ -52,6 +52,7 @@ ul li i:hover {
 .right-side-sec {
     flex: 1 0 0%;
     padding: 25px;
+    position: relative;
     .sticker-book {
         display: flex;
         flex-direction: column;
@@ -88,6 +89,9 @@ ul li i:hover {
     align-items: center;
     justify-content: center;
     margin-bottom: -12px;
+    position: absolute;
+    bottom: 385px;
+    left: 43%;
     button {
     height: 47px;
     width: 110px;
@@ -100,11 +104,47 @@ ul li i:hover {
         }
     }
 }
+
+.down-btn-up {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -12px;
+    position: absolute;
+    bottom: 0;
+    left: 43%;
+    button {
+    height: 47px;
+    width: 110px;
+    border-radius: 20px;
+    box-shadow: rgb(99 99 99 / 20%) 0px -5px 7px -2px;
+    z-index: 2;
+    background: #fff;
+        i { 
+            font-size: 20px;
+        }
+    }
+}
+.sticker-btn-sec {
+    margin-bottom: 26px;
+    button {
+        padding: 6px 16px;
+        border: none;
+        border-radius: 15px;
+        font-size: 12px;
+    }
+    
+}
     }
 
 .sticker-custm-card {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     border: none;
+    bottom: 0;
+    position: absolute;
+    width: 88%;
+    transform: translate(48px, 0);
 }
 
 .game-btn {
@@ -127,4 +167,41 @@ ul li i:hover {
         background-color: #737373;
       }
     }
+  }
+  .background-card-sec {
+    display: flex;
+    height: 130px;
+    position: relative;
+    .label-card {
+        background: #ebe7e7;
+        border-radius: 2px;
+        height: 66px;
+        width: 100px;
+        margin-right: 5px;
+        }
+        .sticker1 {
+            position: absolute;
+            top: 40px;
+            left: 10%;
+        }
+        .sticker2 {
+            position: absolute;
+            top: 52px;
+            left: 30%;
+        }
+        .sticker3 {
+            position: absolute;
+            top: 25px;
+            left: 55%;
+        }
+        .sticker4 {
+            position: absolute;
+            top: 55px;
+            left: 75%;
+        }
+        
+
+  }
+  .p-relative {
+      position: relative;
   }
