@@ -10,49 +10,50 @@ class NewScene extends Phaser.Scene {
   clickMatchObject: object = { "key": '', "match": '' };
   firstClick: boolean = false;
   puzzlePieceMatch: object[] = [];
+  parentObject: any;
+  backgroundName: any = '';
 
 
-  
   private background: Phaser.GameObjects.Image;
   image: any;
 
   constructor(test) {
-   
+
     super({ key: 'new' });
 
-    console.log('here',test);
+    this.parentObject = test;
   }
 
   preload() {
-  
+    if (this.parentObject.backgroundName === "bg") {
+      this.load.image("background", "assets/images/background/background.png");
+    }
+    if (this.parentObject.backgroundName === "bg1") {
+      this.load.image("background", "assets/images/train/bg.png");
+    }
 
-    // this.load.image("background", "assets/images/background/background.png");
+    // this.load.image('p1', "assets/images/horseout.png");
+    // this.load.image('p6', "ass ets/images/eleout.png");
 
-   
-      // this.load.image('p1', "assets/images/horseout.png");
-      // this.load.image('p6', "ass ets/images/eleout.png");
+    this.load.image('p2', "assets/images/horse.png");
 
-      this.load.image('p2', "assets/images/horse.png");
+    this.load.image('p3', "assets/images/ele.png");
 
-      this.load.image('p3', "assets/images/ele.png");
+    this.load.image('p4', "assets/images/cat.png");
 
-      this.load.image('p4', "assets/images/cat.png");
-
-      this.load.image('p5', "assets/images/dog.png");
-      // this.load.image('p4', "assets/images/gflower-madlib1.png");
+    this.load.image('p5', "assets/images/dog.png");
+    // this.load.image('p4', "assets/images/gflower-madlib1.png");
   }
 
-
   create() {
-   
 
-    // this.background = this.add.image(0, 0, "background")
-    //   .setOrigin(0, 0);
+    this.background = this.add.image(0, 0, "background")
+      .setOrigin(0, 0);
 
-     
     // // // Based on your game size, it may "stretch" and distort.
-    // this.background.displayWidth = this.sys.canvas.width;
-    // this.background.displayHeight = this.sys.canvas.height;
+    this.background.displayWidth = this.sys.canvas.width;
+    this.background.displayHeight = this.sys.canvas.height;
+
     let image2 = this.add.sprite(600, 400, 'p2').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
 
     let image3 = this.add.sprite(1000, 400, 'p3').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
@@ -70,33 +71,41 @@ class NewScene extends Phaser.Scene {
     this.input.dragDistanceThreshold = 16;
 
     this.input.on('dragstart', function (pointer, gameObject) {
-// console.log(pointer, gameObject)
-        // gameObject.setTint(0xff0000);
+      // console.log(pointer, gameObject)
+      // gameObject.setTint(0xff0000);
 
     });
 
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-// console.log(dragX, dragY)
-        gameObject.x = dragX;
-        gameObject.y = dragY;
+      // console.log(dragX, dragY)
+      gameObject.x = dragX;
+      gameObject.y = dragY;
 
     });
 
     this.input.on('dragend', function (pointer, gameObject) {
 
-// if(gameObject.texture.key=='p2'){
-//   gameObject.x = 200;
-//   gameObject.y = 150 ;
-  
-// }
-// if(gameObject.texture.key=='p3'){
-//   gameObject.x = 600;
-//   gameObject.y = 150 ;
-// }
+      // if(gameObject.texture.key=='p2'){
+      //   gameObject.x = 200;
+      //   gameObject.y = 150 ;
+
+      // }
+      // if(gameObject.texture.key=='p3'){
+      //   gameObject.x = 600;
+      //   gameObject.y = 150 ;
+      // }
 
 
     });
+    // this.input.once('pointerdown', () => { 
+    //   console.log("hh",this.parentObject.backgroundName)
+    //   this.scene.stop();
+    //   this.scene.start();
+    // })
   }
+
+  // update() {
+  // }
 }
 
 @Component({
@@ -108,11 +117,16 @@ export class StickerbookComponent implements OnInit {
   variable = true
   phaserGame: Phaser.Game;
   config: Phaser.Types.Core.GameConfig;
-  color='red';
-  showPanal=true;
+  color = 'red';
+  showPanal = true;
+  backgroundName: any = 'bg'
   @ViewChild('content') content;
 
   constructor(private router: Router, private modalService: NgbModal) {
+    this.scheneConfig();
+  }
+
+  scheneConfig() {
     this.config = {
       type: Phaser.AUTO,
       scene: new NewScene(this),
@@ -137,9 +151,11 @@ export class StickerbookComponent implements OnInit {
     this.phaserGame = new Phaser.Game(this.config);
   }
 
-  changeBg(){
-    console.log("hete")
-    document.getElementById('gameContainer').style.backgroundImage = "url('assets/images/background/background.png')";
+  changeBg(name) {
+    document.getElementsByTagName('canvas')[0].remove();
+    this.backgroundName = name;
+    this.scheneConfig();
+    this.phaserGame = new Phaser.Game(this.config);
   }
 
   ngAfterViewInit() {

@@ -1,5 +1,5 @@
 <div class="main-content-sec">
-    
+
     <div class="left-side-sec">
         <ul>
             <li [routerLink]="['/games']">
@@ -14,8 +14,8 @@
     </div>
     <div class="right-side-sec">
         <div class="d-flex sticker-btn-sec">
-            <button (click)="changeBg()">BACKGROUND 1</button>
-            <button>BG 2</button>
+            <button (click)="changeBg('bg')">BACKGROUND 1</button>
+            <button (click)="changeBg('bg1')">BG 2</button>
             <button>BACKG 3</button>
             <button>BACKGROUND 4</button>
             <button>BACKGRO 5</button>
@@ -33,7 +33,7 @@
             <div class="label-card sticker4"></div> 
         </div> -->
         <div class="down-btn" *ngIf="showPanal">
-            <button class="btn"  (click)="showPanal=!showPanal"><i class="fa fa-caret-down"></i></button>
+            <button class="btn" (click)="showPanal=!showPanal"><i class="fa fa-caret-down"></i></button>
         </div>
         <div class="card sticker-custm-card" *ngIf="showPanal">
             <div class="sticker-book">
