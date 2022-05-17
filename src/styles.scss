@@ -6,6 +6,7 @@
 .main-content-sec {
   display: flex;
   height: 100vh;
+  overflow-x: hidden;
 
   .left-side-sec {
     flex: 0 0 auto;
@@ -115,4 +116,29 @@
 
 .modal-popup-btn {
   margin: 60px 10px 80px !important;
+}
+
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 17px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+#gameContainer {
+  height: calc(100vh - 82px) !important;
+  overflow: hidden auto !important;
 }
