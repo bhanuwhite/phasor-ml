@@ -63,7 +63,9 @@ class NewScene extends Phaser.Scene {
     this.load.image('p4', "assets/images/cat.png");
 
     this.load.image('p5', "assets/images/dog.png");
-    // this.load.image('p4', "assets/images/gflower-madlib1.png");
+    this.load.image('panal', "assets/images/stickerpanal.png");
+ 
+ 
   }
 
   create() {
@@ -84,9 +86,10 @@ class NewScene extends Phaser.Scene {
 
     let image4 = this.add.sprite(1300, 400, 'p4').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
     let image5 = this.add.sprite(1600, 400, 'p5').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
-    // let image4 = this.add.sprite(1400, 400, 'p4').setInteractive({ cursor: 'pointer' }).setDisplaySize(280, 150);
-
-    // image2.setDepth(1)
+    
+  // let panalImg = this.add.image(200,200,'panal').setOrigin(-0.1,-1)
+    
+   
 
     this.input.setDraggable(image2);
     this.input.setDraggable(image3);
@@ -111,15 +114,7 @@ class NewScene extends Phaser.Scene {
 
     this.input.on('dragend', function (pointer, gameObject) {
       // image2.visible=false
-      // if(gameObject.texture.key=='p2'){
-      //   gameObject.x = 200;
-      //   gameObject.y = 150 ;
-
-      // }
-      // if(gameObject.texture.key=='p3'){
-      //   gameObject.x = 600;
-      //   gameObject.y = 150 ;
-      // }
+     
 
 
     });
@@ -145,7 +140,7 @@ export class StickerbookComponent implements OnInit {
   config: Phaser.Types.Core.GameConfig;
   color = 'red';
   showPanal = true;
-  backgroundName: any = 'blank'
+  backgroundName: any = 'bg'
   @ViewChild('content') content;
 
   constructor(private router: Router, private modalService: NgbModal) {

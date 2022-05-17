@@ -14,15 +14,15 @@
     </div>
     <div class="right-side-sec">
         <div class="d-flex sticker-btn-sec">
-            <button (click)="changeBg('bg')">BACKGROUND 1</button>
-            <button (click)="changeBg('bg1')">BACKGROUND 2</button>
-            <button (click)="changeBg('bg2')">BACKGROUND 3</button>
-            <button (click)="changeBg('bg3')">BACKGROUND 4</button>
-            <button (click)="changeBg('bg4')">BACKGROUND 5</button>
-            <button (click)="changeBg('bg5')">BACKGROUND 6</button>
-            <button (click)="changeBg('bg6')">BACKGROUND 7</button>
-            <button (click)="changeBg('bg8')">BACKGROUND 8</button>
-            <button (click)="changeBg('blank')">BLANK</button>
+            <button (click)="changeBg('bg')" [ngStyle]="{'background-color':backgroundName=='bg'?'blue':''}">BACKGROUND 1</button>
+            <button (click)="changeBg('bg1')" [ngStyle]="{'background-color':backgroundName=='bg1'?'blue':''}">BACKGROUND 2</button>
+            <button (click)="changeBg('bg2')" [ngStyle]="{'background-color':backgroundName=='bg2'?'blue':''}">BACKGROUND 3</button>
+            <button (click)="changeBg('bg3')" [ngStyle]="{'background-color':backgroundName=='bg3'?'blue':''}">BACKGROUND 4</button>
+            <button (click)="changeBg('bg4')" [ngStyle]="{'background-color':backgroundName=='bg4'?'blue':''}">BACKGROUND 5</button>
+            <button (click)="changeBg('bg5')" [ngStyle]="{'background-color':backgroundName=='bg5'?'blue':''}">BACKGROUND 6</button>
+            <button (click)="changeBg('bg6')" [ngStyle]="{'background-color':backgroundName=='bg6'?'blue':''}">BACKGROUND 7</button>
+            <button (click)="changeBg('bg8')" [ngStyle]="{'background-color':backgroundName=='bg8'?'blue':''}">BACKGROUND 8</button>
+            <button (click)="changeBg('blank')" [ngStyle]="{'background-color':backgroundName=='blank'?'blue':''}">BLANK</button>
         </div>
         <div id="gameContainer">
         </div>
