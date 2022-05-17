@@ -52,14 +52,36 @@ class NewScene extends Phaser.Scene {
     this.background.displayWidth = this.sys.canvas.width;
     this.background.displayHeight = this.sys.canvas.height;
 
-    this.text = this.add.text(1000, 50, "I got up in the middle of the night to get night to get a glass of water. I was really thirsty. The next morning I went down the stairs and",{ font: "16px Arial Black", fill: "#FF0000" });
+    // this.text = this.add.text(1000, 50, "I got up in the middle of the night to get night to get a glass of water. I was really thirsty. I thought I saw a monster in the corner  of my room but it was just my cat up on the shelf.", { font: "16px Arial Black", fill: "#FF0000" });
+
+    // -----------Add Text-----------
+    var style = {
+      'font': '36px Arial',
+      'font-weight': 'bold',
+      'top': "50px",
+      'width': '300%',
+      'position': 'absolute',
+      'left': '260%'
+    };
+
+    let replaceWord = 'crayons'
+
+    var div = document.createElement('div');
+    div.innerHTML = `I got up in the middle of the night to get a glass of crayons. I was really thirsty. I thought I saw a monster in the corner  of my room but it was just my cat up on the shelf.`
+
+    Object.assign(div.style, style);
+    this.text = this.add.dom(0, 0, div);
 
     this.input.keyboard.on('keydown-SPACE', function (event) {
       this.backgroundImg = 'play'
     }, this);
 
     this.input.keyboard.on('keydown-R', function (event) {
-      this.backgroundImg == 'reverse' ? this.backgroundImg = 'play' : this.backgroundImg = 'reverse'
+      this.backgroundImg == 'reverse' ? this.backgroundImg = 'play' : this.backgroundImg = 'reverse';
+
+      this.backgroundImg == 'reverse' ?
+        div.innerHTML = `I got up in the middle of the night to get a glass of <span style="color:red">crayons</span>. I was really thirsty. I thought I saw a monster in the corner  of my room but it was just my cat up on the shelf.` :
+        div.innerHTML = `I got up in the middle of the night to get a glass of <span style="color:green">water</span>. I was really thirsty. I thought I saw a monster in the corner  of my room but it was just my cat up on the shelf.`
     }, this);
 
     this.input.keyboard.on('keydown-P', function (event) {
@@ -74,17 +96,18 @@ class NewScene extends Phaser.Scene {
   }
 
   update() {
-
-    if (this.text.x > -999) {
+    if (this.text.x >= -4000) {
+      console.log("1", this.text.x)
       this.backgroundImg == 'play' ? this.text.x -= 0.5 : this.backgroundImg == 'pause' ? this.text.x -= 0 : '';
     } else {
-      this.text.x = 999
+      this.text.x = 0
     }
 
     if (this.backgroundImg == 'reverse') {
       this.text.x += 0.5;
-      if (this.text.x > 999) {
-        this.text.x = -998;
+      if (this.text.x >= 0) {
+        console.log("2", this.text.x)
+        this.text.x = -4000;
       }
     }
 
@@ -181,6 +204,9 @@ export class TrainScrollerGameComponent implements OnInit {
         parent: 'gameContainer',
         height: 500,
         width: 1000
+      },
+      dom: {
+        createContainer: true
       },
       physics: {
         default: 'arcade',
