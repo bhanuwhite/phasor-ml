@@ -24,7 +24,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-body">
-        <h1  class="madlib-heading">TRAIN GAME</h1>
+        <h1 class="madlib-heading">TRAIN GAME</h1>
         <br>
         <div class="madlib-content">Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus hendrerit enim ut purus
@@ -34,6 +34,46 @@
     </div>
     <div class="game-btn modal-popup-btn">
         <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">Next</button>
+    </div>
+</ng-template>
+
+<!-- Notification Alert Message -->
+
+<!-- Popup Modal For Instruction -->
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <h1 class="madlib-heading">TRAIN GAME</h1>
+        <br>
+        <div class="madlib-content">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Vivamus hendrerit enim ut purus
+            posuere, sit amet
+            accumsan orci tristique. Duis ac egestas nunc. Aenean sollicitudin elementum consequat. Etiam vel nunc
+            velit. Integer sit amet sapien sed est vehicula tincidunt vitae aliquet lectus.</div>
+    </div>
+    <div class="game-btn modal-popup-btn">
+        <button id="doneButton" (click)="modal.dismiss('Cross click');$event.preventDefault()">Next</button>
+    </div>
+</ng-template>
+
+<!-- Notification Alert Message -->
+
+
+<!-- Popup Modal For Finish -->
+
+<ng-template #finishContent let-modal>
+    <div class="modal-body">
+        <h1 class="madlib-heading">congratulations you delivered {{this.trainCount}} cars</h1>
+        <br>
+        <div class="madlib-content">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Vivamus hendrerit enim ut purus
+            posuere, sit amet
+            accumsan orci tristique. Duis ac egestas nunc. Aenean sollicitudin elementum consequat. Etiam vel nunc
+            velit. Integer sit amet sapien sed est vehicula tincidunt vitae aliquet lectus.</div>
+    </div>
+    <div class="game-btn modal-popup-btn" style="display:flex;justify-content: space-around;">
+        <button id="doneButton" (click)="ReplayFunction()">Replay</button>
+        <button id="doneButton" [routerLink]="['/games']" (click)="modal.dismiss('Cross click');$event.preventDefault()">Finished</button>
     </div>
 </ng-template>
 
