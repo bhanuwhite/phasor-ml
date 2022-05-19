@@ -20,18 +20,11 @@
             <button (click)="changeBg('bg3')" [ngStyle]="{'background-color':backgroundName=='bg3'?'blue':'','color':backgroundName=='bg3'?'white':''}">BACKGROUND 4</button>
             <button (click)="changeBg('bg4')" [ngStyle]="{'background-color':backgroundName=='bg4'?'blue':'','color':backgroundName=='bg4'?'white':''}">BACKGROUND 5</button>
             <button (click)="changeBg('bg5')" [ngStyle]="{'background-color':backgroundName=='bg5'?'blue':'','color':backgroundName=='bg5'?'white':''}">BACKGROUND 6</button>
-            <button (click)="changeBg('bg6')" [ngStyle]="{'background-color':backgroundName=='bg6'?'blue':'','color':backgroundName=='bg6'?'white':''}">BACKGROUND 7</button>
-            <button (click)="changeBg('bg8')" [ngStyle]="{'background-color':backgroundName=='bg8'?'blue':'','color':backgroundName=='bg8'?'white':''}">BACKGROUND 8</button>
             <button (click)="changeBg('blank')" [ngStyle]="{'background-color':backgroundName=='blank'?'blue':'','color':backgroundName=='blank'?'white':''}">BLANK</button>
         </div>
         <div id="gameContainer">
         </div>
-        <!-- <div class="background-card-sec">
-            <div class="label-card sticker1"></div>
-            <div class="label-card sticker2"></div>
-            <div class="label-card sticker3"></div>
-            <div class="label-card sticker4"></div> 
-        </div> -->
+       
         <div class="down-btn" *ngIf="showPanal">
             <button class="btn" (click)="showPanal=!showPanal"><i class="fa fa-caret-down"></i></button>
         </div>
@@ -41,40 +34,64 @@
                     <h5>Sticker Book</h5>
                     <div class="sticker-animal">
                         <div><i class="fa fa-wechat"></i></div>
-                        <div>Animals</div>
+                        <div><a href="javascript:void(0)" (click)="panalScene=true" >Animals</a></div>
                     </div>
                     <div class="sticker-animal">
                         <div><i class="fa fa-wechat"></i></div>
-                        <div>Speech bubbles</div>
+                        <div><a href="javascript:void(0)" (click)="panalScene=false">Speech bubbles</a></div>
                     </div>
-                    <div class="sticker-animal">
-                        <div><i class="fa fa-wechat"></i></div>
-                        <div>Catergory</div>
+                
+                </div>
+                <div *ngIf="panalScene" class="label-card-section">
+                    <div>
+                        <div class="label-card" (click)="dragObj('cat')"><img class="label-card" src="assets/images/cat.png"></div>
+                        <p>Label</p>
                     </div>
-                    <div class="sticker-animal">
-                        <div><i class="fa fa-wechat"></i></div>
-                        <div>Catergory</div>
+                    <div>
+                        <div class="label-card" (click)="dragObj('dog')"><img class="label-card" src="assets/images/dog.png"></div>
+                        <p>Label</p>
                     </div>
-                    <div class="sticker-animal">
-                        <div><i class="fa fa-wechat"></i></div>
-                        <div>Catergory</div>
+                    <div>
+                        <div class="label-card" (click)="dragObj('ele')"><img class="label-card" src="assets/images/ele.png"></div>
+                        <p>Label</p>
+                    </div>
+                    <div>
+                        <div class="label-card" (click)="dragObj('horse')"><img class="label-card" src="assets/images/horse.png"></div>
+                        <p>Label</p>
+                    </div>
+                    <div>
+                        <div class="label-card"></div>
+                        <p>Label</p>
+                    </div>
+                    <div>
+                        <div class="label-card"></div>
+                        <p>Label</p>
+                    </div>
+                    <div>
+                        <div class="label-card"></div>
+                        <p>Label</p>
+                    </div>
+                    <div>
+                        <div class="label-card"></div>
+                        <p>Label</p>
                     </div>
                 </div>
-                <div class="label-card-section">
+
+                <div *ngIf="!panalScene" class="label-card-section">
                     <div>
-                        <div class="label-card"></div>
+                        <div class="label-card" (click)="dragObj('mountain')"><img class="label-card" src="assets/images/mountain.jpg"></div>
                         <p>Label</p>
                     </div>
                     <div>
-                        <div class="label-card"></div>
+                        <div class="label-card" (click)="dragObj('river')"><img class="label-card" src="assets/images/river.jpg"></div>
                         <p>Label</p>
                     </div>
                     <div>
-                        <div class="label-card"></div>
+                        <div class="label-card" (click)="dragObj('sunset')"><img class="label-card" src="assets/images/sunset.jpg"></div>
                         <p>Label</p>
                     </div>
                     <div>
-                        <div class="label-card"></div>
+                        <div class="label-card" (click)="dragObj('tree')"><img class="label-card" src="assets/images/tree.jpg"></div>
                         <p>Label</p>
                     </div>
                     <div>

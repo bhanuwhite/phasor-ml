@@ -62,13 +62,18 @@ ul li i:hover {
     display: flex;
     column-gap: 10px;  
     
-.sticker-animal {
-    display: flex;
-    font-size: 14px;
-    column-gap: 4px;
-    align-items: center;
-    margin: 0px 25px;
-}
+    .sticker-animal {
+        display: flex;
+        font-size: 14px;
+        column-gap: 4px;
+        align-items: center;
+        margin: 0px 25px;
+        a {
+            text-decoration: none;
+            color:#000;
+        }
+    }
+
 }
 .label-card-section {
     display: flex;
