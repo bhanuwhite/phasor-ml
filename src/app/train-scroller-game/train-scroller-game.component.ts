@@ -99,7 +99,7 @@ class NewScene extends Phaser.Scene {
     this.tree3 = this.add.sprite(800, 350, 'tree2').setDisplaySize(180, 100);
 
     // ---------------Add Station----------------
-    this.station = this.add.sprite(2600, 250, 'station').setDisplaySize(1000, 1000)
+    this.station = this.add.sprite(14000, 250, 'station').setDisplaySize(1000, 1000)
     // var station = document.createElement('div');
     // station.innerHTML = `<img style="width: 100%;position: relative;top: 300px;left:220%" src="assets/images/train/station.png">`;
     // this.station = this.add.dom(0, 0, station)
@@ -176,7 +176,7 @@ class NewScene extends Phaser.Scene {
     this.tree3.x = tree3Coordinates ? parseInt(tree3Coordinates) : 800;
 
     let stationCoordinates = localStorage.getItem('stationCoordinates')
-    this.station.x = stationCoordinates ? parseInt(stationCoordinates) : 2600;
+    this.station.x = stationCoordinates ? parseInt(stationCoordinates) : 14000;
 
     // if (this.playStatus == true) {
     //   this.play = this.add.sprite(500, 465, 'play').setInteractive({ cursor: 'pointer' }).setDisplaySize(70, 70);
@@ -463,8 +463,8 @@ class NewScene extends Phaser.Scene {
     // ---------------Station image--------------------
 
     if (this.backgroundImg == 'play') {
-      if (this.station.x < 510) {
-
+      if (this.text.x < -13500) {
+        // this.text.x this.station.x < 510
         // -----------set every object to its initial position-----------------
         this.station.x += 0;
         this.tree1 += 0;
@@ -483,12 +483,12 @@ class NewScene extends Phaser.Scene {
         this.parentContext.finishContentFunction(this.parentContext.finishContent)
 
       } else {
-        this.station.x -= 0.5
+        this.station.x -= 3.5
       }
     }
 
     if (this.backgroundImg == 'reverse') {
-      this.station.x += 0.5
+      this.text.x >= 0 ? this.station.x += 0 : this.station.x += 6.5
     }
 
     // -----------tree1------------
