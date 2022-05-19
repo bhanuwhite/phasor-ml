@@ -359,7 +359,7 @@ class NewScene extends Phaser.Scene {
     }
 
     if (this.backgroundImg == 'reverse') {
-      this.text.x += 3.5;
+      this.text.x += 6.5;
       // ----------------checking Wrong Word Animation------------------
       if (this.text.x > -2800 && this.storyPart == 0) {
         this.car0 = this.add.sprite(332, 380, 'car0').setDisplaySize(70, 50);
@@ -500,7 +500,7 @@ class NewScene extends Phaser.Scene {
     }
 
     if (this.backgroundImg == 'reverse') {
-      this.text.x >= 0 ? this.tree1.x += 0 : this.tree1.x += 0.5;
+      this.text.x >= 0 ? this.tree1.x += 0 : this.tree1.x += 3.5;
       if (this.tree1.x > 999) {
         this.tree1.x = 0;
       }
@@ -515,7 +515,7 @@ class NewScene extends Phaser.Scene {
     }
 
     if (this.backgroundImg == 'reverse') {
-      this.text.x >= 0 ? this.tree2.x += 0 : this.tree2.x += 0.5;
+      this.text.x >= 0 ? this.tree2.x += 0 : this.tree2.x += 3.5;
       if (this.tree2.x > 999) {
         this.tree2.x = 0;
       }
@@ -530,7 +530,7 @@ class NewScene extends Phaser.Scene {
     }
 
     if (this.backgroundImg == 'reverse') {
-      this.text.x >= 0 ? this.tree3.x += 0 : this.tree3.x += 0.5;
+      this.text.x >= 0 ? this.tree3.x += 0 : this.tree3.x += 3.5;
       if (this.tree3.x > 999) {
         this.tree3.x = 0;
       }
@@ -543,21 +543,21 @@ class NewScene extends Phaser.Scene {
       this.backgroundImg == 'pause' ?
         this.background.tilePositionX += 0 :
         this.backgroundImg == 'reverse' ?
-          this.text.x >= 0 ? this.background.tilePositionX += 0 : this.background.tilePositionX -= 2.5 : '';
+          this.text.x >= 0 ? this.background.tilePositionX += 0 : this.background.tilePositionX -= 5.5 : '';
 
     this.backgroundImg == 'play' ?
       this.cloud1.tilePositionX += 0.2 :
       this.backgroundImg == 'pause' ?
         this.cloud1.tilePositionX += 0 :
         this.backgroundImg == 'reverse' ?
-          this.text.x >= 0 ? this.cloud1.tilePositionX += 0 : this.cloud1.tilePositionX -= 0.2 : '';
+          this.text.x >= 0 ? this.cloud1.tilePositionX += 0 : this.cloud1.tilePositionX -= 3.2 : '';
 
     this.backgroundImg == 'play' ?
       this.cloud2.tilePositionX += 0.2 :
       this.backgroundImg == 'pause' ?
         this.cloud2.tilePositionX += 0 :
         this.backgroundImg == 'reverse' ?
-          this.text.x >= 0 ? this.cloud2.tilePositionX += 0 : this.cloud2.tilePositionX -= 0.2 : '';
+          this.text.x >= 0 ? this.cloud2.tilePositionX += 0 : this.cloud2.tilePositionX -= 3.2 : '';
 
     // -------------------------Set localstorage------------------------------
 
@@ -652,5 +652,6 @@ export class TrainScrollerGameComponent implements OnInit {
     this.phaserScheneConfig();
     this.phaserGame = new Phaser.Game(this.config);
     this.modalService.dismissAll()
+    localStorage.clear()
   }
 }

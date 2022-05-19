@@ -63,7 +63,8 @@
 
 <ng-template #finishContent let-modal>
     <div class="modal-body">
-        <h1 class="madlib-heading">congratulations you delivered {{this.trainCount}} cars</h1>
+        <h1 class="madlib-heading" *ngIf="trainCount =='0'">You Have Failed To Delivered Cars. Try Again</h1>
+        <h1 class="madlib-heading" *ngIf="trainCount !='0'">Congratulations You Delivered {{this.trainCount}} Cars</h1>
         <br>
         <div class="madlib-content">Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus hendrerit enim ut purus
@@ -73,7 +74,8 @@
     </div>
     <div class="game-btn modal-popup-btn" style="display:flex;justify-content: space-around;">
         <button id="doneButton" (click)="ReplayFunction()">Replay</button>
-        <button id="doneButton" [routerLink]="['/games']" (click)="modal.dismiss('Cross click');$event.preventDefault()">Finished</button>
+        <button id="doneButton" [routerLink]="['/games']"
+            (click)="modal.dismiss('Cross click');$event.preventDefault()">Finished</button>
     </div>
 </ng-template>
 
